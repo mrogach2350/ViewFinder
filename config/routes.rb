@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
- 	get '/', to: 'photos#index'
+ 	get '/', to: 'photos#index', as: 'photos'
 
  	# take out later
 	get '/users/new', to: 'users#new', as: 'new_user'
@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 	get '/users/:id/edit', to: 'users#edit'
 
 	patch '/users/:id', to: 'users#update'
-	delete '/users/:id/delete', to: 'users#destroy'
+	delete '/users/:id', to: 'users#destroy'
 
 	get '/landmarks', to: 'landmarks#index', as: 'map'
 	get '/landmarks/:id', to: 'landmarks#show', as: 'landmark'
