@@ -17,3 +17,7 @@
 //= require app
 //= require materialize-sprockets
 //= require_tree .
+
+$(document).on('turbolinks:load', function(){
+  $('.side_btn').sideNav();
+});
