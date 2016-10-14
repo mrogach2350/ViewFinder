@@ -29,6 +29,7 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'jquery-turbolinks'
 
+
 gem 'bcrypt', '~> 3.1.7'
 gem 'ffaker'
 # Use Capistrano for deployment

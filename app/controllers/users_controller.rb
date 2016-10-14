@@ -19,15 +19,19 @@ class UsersController < ApplicationController
 	end
 
 	def edit
-
+		@user = User.find_by_id(params[:id])
 	end
 
 	def update
-
+		@user = User.find_by_id(params[:id])
+		@user.update_attributes(user_params)
+		redirect_to @user
 	end
 
 	def destroy
-
+		@user = User.find_by_id(params[:id])
+		@user.destroy
+		redirect_to photos_path
 	end
 
 	private
