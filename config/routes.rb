@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 	patch '/photos/:id/edit', to: 'photos#update'
 	delete '/photos/:id/delete', to: 'photos#destroy'
 
-	get '/landmarks', to: 'landmarks#index'
+	get '/landmarks', to: 'landmarks#index', as: 'map'
+	get '/landmarks/:id', to: 'landmarks#show', as: 'landmark'
 
-  
 end
