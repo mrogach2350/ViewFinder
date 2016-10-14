@@ -1,0 +1,20 @@
+// Place all the styles related to the landmarks controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+html, body {
+  height: 100%;
+}
+
+#map-container {
+  height: 100%;
+  width: 100%;
+}
+
+#map {
+  height: 100%;
+}
+
+#landmark-sidebar {
+  background-color: #d1c4e9;
+  height: 100%;
+}

@@ -3,12 +3,61 @@
   <head>
     <title>ViewFinder</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v0.26.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v0.26.0/mapbox-gl.css' rel='stylesheet' />
   </head>
 
   <body>
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo col s5 offset-s1">Logo</a>
+        <ul id="nav-mobile" class="right">
+          <li><a href="#" data-activates="login" class="side_btn">Login</a></li>
+          <li><a href="#" data-activates="sign_up" class="side_btn">Sign Up</a></li>
+          <li><a href="#" data-activates="upload" class="side_btn">Upload</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <ul id="login" class="side-nav">
+      <div class="container">
+        <li>Log In</li>
+        <%= form_for(User.new) do |f| %>
+          <li><%= f.email_field :email, placeholder: 'Email' %></li>
+          <li><%= f.password_field :email, placeholder: 'Password' %></li>
+          <li><%= f.submit %></li>
+        <% end %>
+      </div>
+    </ul>
+
+    <ul id="sign_up" class="side-nav">
+      <div class="container">
+        <li>Join!</li>
+        <%= form_for(User.new) do |f| %>
+          <li><%= f.text_field :first_name, placeholder: 'First name' %></li>
+          <li><%= f.text_field :last_name, placeholder: 'Last name' %></li>
+          <li><%= f.email_field :email, placeholder: 'Email' %></li>
+          <li><%= f.password_field :email, placeholder: 'Password' %></li>
+          <li><%= f.submit %></li>
+        <% end %>
+      </div>
+    </ul>
+
+    <ul id="upload" class="side-nav">
+      <li><div class="userView">
+        <a href="#!name"><span class="white-text name">John Doe</span></a>
+        <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
+      </div></li>
+      <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
+      <li><a href="#!">Second Link</a></li>
+      <li><div class="divider"></div></li>
+      <li><a class="subheader">Subheader</a></li>
+      <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+    </ul>
+
+
     <%= yield %>
   </body>
 </html>

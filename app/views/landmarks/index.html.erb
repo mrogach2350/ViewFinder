@@ -1,0 +1,21 @@
+<div class="row" id="map-container">
+  <div id="map" class="col s9">
+  </div>
+  <div id="landmark-sidebar" class="col s3">
+  </div>
+</div>
+
+<script>
+$(document).on('turbolinks:load', function() {
+  console.log('script running');
+  mapboxgl.accessToken = 'pk.eyJ1Ijoid28xcGgiLCJhIjoiY2l1YThnemRoMDAxeTJ5bDcyYW82MTZxMSJ9.6KW1QasMXf9JJ2M81bQ-1g'
+  var sfCoords = new mapboxgl.LngLat(	-122.431297, 37.773972);
+  var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/dark-v9',
+    center: sfCoords,
+    zoom: 11
+  });
+  console.log(map);
+});
+</script>
