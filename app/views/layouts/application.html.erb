@@ -12,8 +12,8 @@
   <body>
     <nav>
       <div class="nav-wrapper">
-        <a href="#" class="brand-logo right">Logo</a>
-        <ul id="nav-mobile" class="">
+        <a href="#" class="brand-logo col s5 offset-s1">Logo</a>
+        <ul id="nav-mobile" class="right">
           <li><a href="#" data-activates="login" class="side_btn">Login</a></li>
           <li><a href="#" data-activates="sign_up" class="side_btn">Sign Up</a></li>
           <li><a href="#" data-activates="upload" class="side_btn">Upload</a></li>
@@ -22,17 +22,27 @@
     </nav>
 
     <ul id="login" class="side-nav">
-
+      <div class="container">
+        <li>Log In</li>
+        <%= form_for(User.new) do |f| %>
+          <li><%= f.email_field :email, placeholder: 'Email' %></li>
+          <li><%= f.password_field :email, placeholder: 'Password' %></li>
+          <li><%= f.submit %></li>
+        <% end %>
+      </div>
     </ul>
 
     <ul id="sign_up" class="side-nav">
-      <%= form_for @user do |f| %>
-      	<%= f.text_field :first_name, placeholder: 'First name' %>
-      	<%= f.text_field :last_name, placeholder: 'Last name' %>
-      	<%= f.email_field :email, placeholder: 'Email' %>
-      	<%= f.password_field :email, placeholder: 'Password' %>
-      	<%= f.submit %>
-      <% end %>
+      <div class="container">
+        <li>Join!</li>
+        <%= form_for(User.new) do |f| %>
+          <li><%= f.text_field :first_name, placeholder: 'First name' %></li>
+          <li><%= f.text_field :last_name, placeholder: 'Last name' %></li>
+          <li><%= f.email_field :email, placeholder: 'Email' %></li>
+          <li><%= f.password_field :email, placeholder: 'Password' %></li>
+          <li><%= f.submit %></li>
+        <% end %>
+      </div>
     </ul>
 
     <ul id="upload" class="side-nav">
