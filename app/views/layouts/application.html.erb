@@ -11,8 +11,8 @@
 
   <body>
     <nav>
-      <div class="nav-wrapper">
-        <a href="#" class="brand-logo col s5 offset-s1">Logo</a>
+      <div class="nav-wrapper grey-text text-lighten-4">
+        <a href="#" id="logo"class="brand-logo col s5 offset-s1">ViewFinder</a>
         <ul id="nav-mobile" class="right">
           <li><a href="#" data-activates="login" class="side_btn">Login</a></li>
           <li><a href="#" data-activates="sign_up" class="side_btn">Sign Up</a></li>
@@ -46,18 +46,19 @@
     </ul>
 
     <ul id="upload" class="side-nav">
-      <li><div class="userView">
-        <a href="#!name"><span class="white-text name">John Doe</span></a>
-        <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
-      </div></li>
-      <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
-      <li><a href="#!">Second Link</a></li>
-      <li><div class="divider"></div></li>
-      <li><a class="subheader">Subheader</a></li>
-      <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+
     </ul>
 
+    <div class="main">
+      <%= yield %>
+    </div>
 
-    <%= yield %>
+    <footer class="page-footer">
+        <div class="container ">
+        <a href="#" class="grey-text text-lighten-4 ftr_lnk">© 2016 Viewfinder Team</a>
+        <a href="#" class="grey-text text-lighten-4 ftr_lnk">Community Rules</a>
+        <a href="https://creativecommons.org/licenses/" class="grey-text text-lighten-4 ftr_lnk">Creative Commons</a>
+        </div>
+    </footer>
   </body>
 </html>
