@@ -1,13 +1,25 @@
 Rails.application.routes.draw do
-  get 'photos/index'
 
-  get 'photos/show'
+ 	get '/', to: 'photos#index', as: 'photos'
 
-  get 'photos/create'
+ 	# take out later
+	get '/users/new', to: 'users#new', as: 'new_user'
+	get '/users/:id', to: 'users#show', as: 'user'
 
-  get 'photos/update'
 
-  get 'photos/destroy'
+	post '/users', to: 'users#create'
+	#take out later
+	get '/users/:id/edit', to: 'users#edit'
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+	patch '/users/:id', to: 'users#update'
+	delete '/users/:id', to: 'users#destroy'
+
+	get '/landmarks', to: 'landmarks#index', as: 'map'
+	get '/landmarks/:id', to: 'landmarks#show', as: 'landmark'
+
+	get '/photos/:id', to:'photos#show', as: 'photo'
+	post '/photos', to: 'photos#create'
+	patch '/photos/:id/edit', to: 'photos#update'
+	delete '/photos/:id/delete', to: 'photos#destroy'
+
 end
