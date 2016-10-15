@@ -22,4 +22,7 @@ Rails.application.routes.draw do
 	patch '/photos/:id/edit', to: 'photos#update'
 	delete '/photos/:id/delete', to: 'photos#destroy'
 
+	get '/login', to: 'sessions#new'
+	post '/sessions', to: 'sessions#create'
+
 end
