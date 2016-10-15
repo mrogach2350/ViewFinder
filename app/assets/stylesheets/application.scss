@@ -1,7 +1,22 @@
 //=require landmarks
 //=require_tree .
 @import "materialize";
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
 
 .nav-wrapper {
   background: #512DA8;
+}
+#logo {
+  margin-left: 15px;
+}
+.ftr_lnk {
+  margin-right: 5vw;
 }
