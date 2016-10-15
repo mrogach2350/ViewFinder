@@ -23,6 +23,7 @@ Rails.application.routes.draw do
 	delete '/photos/:id/delete', to: 'photos#destroy'
 
 	get '/login', to: 'sessions#new'
+	get '/logout', to: 'sessions#destroy'
 	post '/sessions', to: 'sessions#create'
 
 end

@@ -14,5 +14,10 @@ class SessionsController < ApplicationController
 		end
 	end
 
-	
+	def destroy
+		logout
+		redirect_to photos_path
+	end
+
+
 end
