@@ -25,9 +25,13 @@
       <div class="container">
         <li>Log In</li>
         <%= form_for(User.new) do |f| %>
-          <li><%= f.email_field :email, placeholder: 'Email' %></li>
-          <li><%= f.password_field :email, placeholder: 'Password' %></li>
-          <li><%= f.submit %></li>
+          <div>
+            <%= f.email_field :email, placeholder: "Email" %>
+          </div>
+          <div>
+            <%= f.password_field :password, placeholder: "Password" %>
+          </div>
+          <%= f.submit "Log In" %>
         <% end %>
       </div>
     </ul>

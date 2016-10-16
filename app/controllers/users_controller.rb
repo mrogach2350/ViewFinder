@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
 	def new
 		@user = User.new
 
@@ -7,13 +6,13 @@ class UsersController < ApplicationController
 
 	def create
 		@user = User.create(user_params)
-		login(@user)
-		redirect_to photos_path
-		# if @user.save
-		# 	redirect_to @user
-		# else
-		# 	render :new
-		# end
+		# login(@user)
+		# redirect_to @user
+		if @user.save
+			redirect_to @user
+		else
+			redirect_to "http://google.com"
+		end
 	end
 
 	def show
