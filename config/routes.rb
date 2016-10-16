@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
  
 	get '/', to: 'photos#index'
-	get '/photos:id', to:'photos#show', as: 'photo'
+	get '/photos/:id', to:'photos#show', as: 'photo'
 	post '/photos', to: 'photos#create'
 	patch '/photos/:id/edit', to: 'photos#update'
 	delete '/photos/:id/delete', to: 'photos#destroy'
