@@ -1,1 +1,29 @@
-<%= @user.first_name %>
+
+
+  <main>
+    <div class="row">
+      <%= Photo.all.each do |photo| %>
+          <div class="col s6 m3">
+            <div class="card small">
+              <div class="card-image">
+                <img src= '<%= photo.url %>'>
+                <span class="card-title">Card Title</span>
+              </div>
+              <div class="card-content">
+                <p>I am a very simple card. I am good at containing small bits of information.
+                I am convenient because I require little markup to use effectively.</p>
+              </div>
+            </div>
+          </div>
+      <% end %>
+    </div>
+  </main>
+
+  <footer>
+    <ul id="user_bar" class="collapsible" data-collapsible="accordion">
+      <li>
+        <div class="collapsible-header"><%= image_tag('user.png') %> <%= @user.first_name %> <%= @user.last_name %></div>
+        <div class="collapsible-body"><p><%= @user.bio %></p></div>
+      </li>
+    </ul>
+  </footer>
