@@ -11,11 +11,22 @@ body {
 #logo {
   margin-left: 15px;
 }
+main {
+  height: 75vh;
+}
 
 .ftr_lnk {
   margin-right: 5vw;
 }
+#footer {
+  margin-top: 0;
+  margin-bottom: 0;
+  position: relative;
+}
 .ftr {
   display: flex;
   align-items: center;
+}
+#user_bar{
+  margin-bottom: 0;
 }
