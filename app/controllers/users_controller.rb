@@ -11,7 +11,7 @@ class UsersController < ApplicationController
 		if @user.save
 			redirect_to @user
 		else
-			redirect_to "http://google.com"
+			render :new
 		end
 	end
 
