@@ -4,7 +4,7 @@
     <div class="row">
       <% @landmarks.each do |lm, i| %>
       <div class="col s12">
-        <div class="card hoverable landmark-list-card">
+        <div class="card hoverable landmark-list-card" data-lat="<%=lm.lat%>" data-lng="<%=lm.long%>">
           <div class="card-image">
             <img class="responsive-img" src="<%= lm.url %>">
             <span class="card-title"><%= lm.title %></span>
@@ -37,6 +37,7 @@ $(document).on('turbolinks:load', function() {
     center: sfCoords,
     zoom: 10.5
   });
+
   map.on('load', function(){
     console.log('map loaded');
     map.easeTo({
@@ -45,23 +46,18 @@ $(document).on('turbolinks:load', function() {
       duration: 2000
     });
   });
-  var clicks = 0;
+
   $(".landmark-list-card").click(function() {
-    clicks +=1;
-    if(clicks % 2 != 0) {
-    console.log('odd');
+    var lat = $(this).attr('data-lat');
+    var lng = $(this).attr('data-lng');
+
     map.flyTo({
       zoom: 18,
-      center: new mapboxgl.LngLat(-122.40128019999997, 37.790841),
-      pitch: 180,
+      center: new mapboxgl.LngLat(lat, lng),
+      pitch: 180
     });
-  } else {
-    console.log('even');
-    map.flyTo({
-      zoom: 11.5,
-      pitch: -180,
-    });
-  }
+
+
  });
  <% for @landmark in @landmarks %>
   console.log('<%= @landmark.title %>');
