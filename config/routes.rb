@@ -2,14 +2,10 @@ Rails.application.routes.draw do
 
  	get '/', to: 'photos#index', as: 'photos'
 
- 	# take out later
-	get '/users/new', to: 'users#new', as: 'new_user'
 	get '/users/:id', to: 'users#show', as: 'user'
 
 
 	post '/users', to: 'users#create'
-	#take out later
-	get '/users/:id/edit', to: 'users#edit'
 
 	patch '/users/:id', to: 'users#update'
 	delete '/users/:id', to: 'users#destroy'
@@ -22,7 +18,6 @@ Rails.application.routes.draw do
 	patch '/photos/:id/edit', to: 'photos#update'
 	delete '/photos/:id/delete', to: 'photos#destroy'
 
-	get '/login', to: 'sessions#new'
 	get '/logout', to: 'sessions#destroy'
 	post '/sessions', to: 'sessions#create'
 
