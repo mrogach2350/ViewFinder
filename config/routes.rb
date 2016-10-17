@@ -31,21 +31,9 @@ Rails.application.routes.draw do
 	# patch '/photos/:id', to: 'photos#update'
 	# delete '/photos/:id', to: 'photos#destroy'
 
-
-
-
-	
-
-
-
-
-
-<<<<<<< HEAD
-=======
-
 	get '/login', to: 'sessions#new'
 	get '/logout', to: 'sessions#destroy'
 	post '/sessions', to: 'sessions#create'
->>>>>>> seed
+
 
 end
