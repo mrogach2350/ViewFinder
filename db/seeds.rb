@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+<<<<<<< Updated upstream
 tables = ['users', 'landmarks', 'photos']
 
 tables.each do |table|
@@ -21,6 +22,20 @@ end
 		bio: FFaker::BaconIpsum.sentence
 		)
 end
+
+User.destroy_all
+Landmark.destroy_all
+Photo.destroy_all
+
+
+User.create(
+	first_name: FFaker::Name.first_name,
+	last_name: FFaker::Name.last_name,
+	email: FFaker::Internet.email,
+	password_digest: 'password',
+	bio: FFaker::BaconIpsum.sentence
+	)
+
 
 Landmark.create(
 	title: 'Golden Gate Bridge',
