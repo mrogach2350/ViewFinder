@@ -44,6 +44,11 @@ $(document).on('turbolinks:load', function() {
     });
   });
 
+  <% for @landmark in @landmarks %>
+    //L.marker(['@landmark.long', '@landmark.lat']).addTo(map);
+    console.log(@landmark);
+  <% end %>
+
   $('#map-reset').click(function() {
     map.flyTo({
       zoom: 11.5,
@@ -64,8 +69,5 @@ $(document).on('turbolinks:load', function() {
 
 
  });
- <% for @landmark in @landmarks %>
-  console.log('<%= @landmark.title %>');
- <% end %>
 });
 </script>
