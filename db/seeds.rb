@@ -25,3 +25,42 @@ Photo.create(
 	user_id: 1,
 	landmark_id: 1
 	)
+
+golden_gate = Landmark.create(
+	coordinates: '37.8199° N, 122.4783° W'
+	)
+bay_bridge = Landmark.create(
+	coordinates: '37.7983° N, 122.3778° W'
+	)
+coit_tower = Landmark.create(
+	coordinates: '37.8024° N, 122.4058° W'
+	)
+ferry_building = Landmark.create(
+	coordinates: '37.7956° N, 122.3933° W'
+	)
+palace_of_fine_arts = Landmark.create(
+	coordinates: '37.8029° N, 122.4484° W'
+	)
+grace_cathedral = Landmark.create(
+	coordinates: '37.7920° N, 122.4134° W'
+	)
+city_hall = Landmark.create(
+	coordinates: '37.7793° N, 122.4188° W'
+	)
+sfmoma = Landmark.create(
+	coordinates: '37.7855° N, 122.4009° W'
+	)
+fort_mason = Landmark.create(
+	coordinates: '37.8064° N, 122.4321° W'
+	)
+cupids_span = Landmark.create(
+	coordinates: '37.7916° N, 122.3900° W'
+	)
+vaillancourt_fountain = Landmark.create(
+	coordinates: '37.7955° N, 122.3954° W'
+	)
+lombard_street = Landmark.create(
+	coordinates: '37.8021° N, 122.4187° W'
+	)
+
+
