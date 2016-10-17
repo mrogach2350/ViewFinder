@@ -1,5 +1,11 @@
-<div class="photo_back row">
-<% @photos.each do |photo| %>
-    <img class="col s4 offset-s1" id="idx_photo" src="<%= photo.url %>" alt="" />
-<% end %>
-</div>
+
+<main>
+  <div class="carousel carousel-slider" data-indicators="true">
+    <% @photos.each do |photo| %>
+      <div class="carousel-item white-text" href="#one!">
+        <h2 class="center white-text"><%= photo.title %></h2>
+        <img src="<%= photo.url %>" alt="" />
+      </div>
+    <% end %>
+  </div>
+</main>
