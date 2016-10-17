@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
 
+	get '/', to: 'photos#index', as: 'photos'
 
- 	get '/', to: 'photos#index', as: 'photos'
+	resources :landmarks, only: [:index, :show] do 
+		resources :photos, except: [:edit]
+	end
+
+ 	
 
 
  	# take out later
@@ -17,12 +22,25 @@ Rails.application.routes.draw do
 	delete '/users/:id', to: 'users#destroy'
 
 
-	get '/landmarks', to: 'landmarks#index', as: 'map'
-	get '/landmarks/:id', to: 'landmarks#show', as: 'landmark'
+	# get '/landmarks', to: 'landmarks#index', as: 'map'
+	# get '/landmarks/:id', to: 'landmarks#show', as: 'landmark'
 
-	get '/photos/:id', to:'photos#show', as: 'photo'
-	post '/photos', to: 'photos#create'
-	patch '/photos/:id/edit', to: 'photos#update'
-	delete '/photos/:id/delete', to: 'photos#destroy'
+	# get '/photos/:id', to:'photos#show', as: 'photo'
+
+	# take out later
+	# get '/photos/new', to: 'photos#new'
+	# post '/photos', to: 'photos#create'
+	# patch '/photos/:id', to: 'photos#update'
+	# delete '/photos/:id', to: 'photos#destroy'
+
+
+
+
+	
+
+
+
+
+
 
 end
