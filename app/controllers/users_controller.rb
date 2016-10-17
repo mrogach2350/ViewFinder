@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
 	def new
 		@user = User.new
 
@@ -7,6 +6,8 @@ class UsersController < ApplicationController
 
 	def create
 		@user = User.new(user_params)
+		# login(@user)
+		# redirect_to @user
 		if @user.save
 			redirect_to @user
 		else
