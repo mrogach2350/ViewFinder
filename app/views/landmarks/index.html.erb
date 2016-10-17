@@ -42,12 +42,17 @@ $(document).on('turbolinks:load', function() {
       duration: 2000,
       center: sfCoords
     });
+
+    <% for @landmark in @landmarks %>
+     var marker = new mapboxgl.Marker().setLngLat([<%= @landmark.lat %>, <%= @landmark.long %>]);
+     //$(marker).css('background-color', 'red' );
+     var popup = new mapboxgl.Popup({offset:[0, -30]})
+    .setText('Construction on the Washington Monument began in 1848.');
+     marker.setPopup(popup);
+     marker.addTo(this);
+    <% end %>
   });
 
-  <% for @landmark in @landmarks %>
-    //L.marker(['@landmark.long', '@landmark.lat']).addTo(map);
-    console.log(@landmark);
-  <% end %>
 
   $('#map-reset').click(function() {
     map.flyTo({
@@ -66,8 +71,6 @@ $(document).on('turbolinks:load', function() {
       center: new mapboxgl.LngLat(lat, lng),
       pitch: 180
     });
-
-
- });
+  });
 });
 </script>
