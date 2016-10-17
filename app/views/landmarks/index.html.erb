@@ -2,6 +2,9 @@
   <div id="map" class="col s6 m9"></div>
   <div id="landmark-sidebar" class="col s6 m3">
     <div class="row">
+      <div class="col s12">
+        <button class="btn blueify-bgk" id="map-reset">Reset</button>
+      </div>
       <% @landmarks.each do |lm, i| %>
       <div class="col s12">
         <div class="card hoverable landmark-list-card" data-lat="<%=lm.lat%>" data-lng="<%=lm.long%>">
@@ -21,16 +24,9 @@
 
 <script>
 $(document).on('turbolinks:load', function() {
-  console.log('script running');
   mapboxgl.accessToken = 'pk.eyJ1Ijoid28xcGgiLCJhIjoiY2l1YThnemRoMDAxeTJ5bDcyYW82MTZxMSJ9.6KW1QasMXf9JJ2M81bQ-1g'
   var sfCoords = new mapboxgl.LngLat(	-122.4350, 37.7609);
-  var imageUrl = "https://static.pexels.com/photos/90829/pexels-photo-90829.jpeg";
-  var coords = [
-    [-122.429383, 37.785413],
-    [-122.389907, 37.783583],
-    [-122.400869, 37.760493],
-    [-122.435004, 37.760908],
-  ]
+
   var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/dark-v9',
@@ -43,11 +39,20 @@ $(document).on('turbolinks:load', function() {
     map.easeTo({
       zoom: 11.5,
       bearing: 10,
-      duration: 2000
+      duration: 2000,
+      center: sfCoords
     });
   });
 
-  $(".landmark-list-card").click(function() {
+  $('#map-reset').click(function() {
+    map.flyTo({
+      zoom: 11.5,
+      pitch: -180,
+      center: sfCoords
+    });
+  });
+
+  $('.landmark-list-card').click(function() {
     var lat = $(this).attr('data-lat');
     var lng = $(this).attr('data-lng');
 

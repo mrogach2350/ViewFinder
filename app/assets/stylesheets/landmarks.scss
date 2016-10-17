@@ -9,6 +9,10 @@ html, body {
   color: #03a9f4 !important;
 }
 
+.blueify-bgk {
+  background-color: #03a9f4 !important;
+}
+
 #map-container {
   height: 100%;
   width: 100%;
@@ -23,4 +27,9 @@ html, body {
   background-color: #d1c4e9;
   height: 100%;
   overflow: auto;
+}
+
+#map-reset {
+  margin-top: 5%;
+  width: 100%;
 }
