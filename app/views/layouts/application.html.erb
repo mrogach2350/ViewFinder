@@ -25,9 +25,13 @@
       <div class="container">
         <li>Log In</li>
         <%= form_for(User.new) do |f| %>
-          <li><%= f.email_field :email, placeholder: 'Email' %></li>
-          <li><%= f.password_field :email, placeholder: 'Password' %></li>
-          <li><%= f.submit %></li>
+          <div>
+            <%= f.email_field :email, placeholder: "Email" %>
+          </div>
+          <div>
+            <%= f.password_field :password, placeholder: "Password" %>
+          </div>
+          <%= f.submit "Log In" %>
         <% end %>
       </div>
     </ul>
@@ -57,6 +61,21 @@
       <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
     </ul>
 
+  <ul>
+    <% if current_user %>
+      <li><%= link_to "Profile", user_path(current_user) %></li>
+      <li><%= link_to "Log Out", logout_path %></li>
+    <% else %>
+      <li><%= link_to "Create Account", new_user_path %></li>
+      <li><%= link_to "Log In", login_path %></li>
+    <% end %>
+  </ul>
+
+  <% flash.each do |name, msg| %>
+  <p>
+    <small> <%= name.capitalize %>: <%= msg %> </small>
+  </p>
+<% end %>
 
     <%= yield %>
   </body>

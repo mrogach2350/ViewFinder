@@ -6,9 +6,7 @@ Rails.application.routes.draw do
 		resources :photos, except: [:edit]
 	end
 
- 	
-
-
+ 
  	# take out later
 	get '/users/new', to: 'users#new', as: 'new_user'
 	get '/users/:id', to: 'users#show', as: 'user'
@@ -42,5 +40,12 @@ Rails.application.routes.draw do
 
 
 
+<<<<<<< HEAD
+=======
+
+	get '/login', to: 'sessions#new'
+	get '/logout', to: 'sessions#destroy'
+	post '/sessions', to: 'sessions#create'
+>>>>>>> seed
 
 end
