@@ -6,6 +6,20 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+landmarks = [
+	{	title: 'Golden Gate Bridge',
+		description: "https://static.pexels.com/photos/90829/pexels-photo-90829.jpeg"
+	},
+	{	title: 'Muir Woods',
+		description: "https://static.pexels.com/photos/9579/pexels-photo.jpeg"
+	},
+	{	title: 'Bay Bridge',
+		description: "https://static.pexels.com/photos/1188/city-landmark-lights-night.jpg"
+	},
+	{	title: 'Alcatraz',
+		description: "https://static.pexels.com/photos/33545/sunrise-phu-quoc-island-ocean.jpg"
+	}
+]
 User.create(
 	first_name: FFaker::Name.first_name,
 	last_name: FFaker::Name.last_name,
@@ -14,10 +28,7 @@ User.create(
 	bio: FFaker::BaconIpsum.sentence
 	)
 
-Landmark.create(
-	title: 'Golden Gate Bridge',
-	description: FFaker::DizzleIpsum.sentence
-	)
+Landmark.create(landmarks)
 
 Photo.create(
 	title: 'Photo Title',

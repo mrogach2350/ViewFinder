@@ -5,6 +5,10 @@ html, body {
   height: 100%;
 }
 
+.blueify {
+  color: #03a9f4 !important;
+}
+
 #map-container {
   height: 100%;
   width: 100%;
@@ -18,4 +22,5 @@ html, body {
 #landmark-sidebar {
   background-color: #d1c4e9;
   height: 100%;
+  overflow: auto;
 }
