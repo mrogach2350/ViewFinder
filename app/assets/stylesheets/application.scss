@@ -2,7 +2,8 @@
 //=require_tree .
 @import "materialize";
 body {
-  background: #D1C4E9;
+  background-image: url('http://i.imgur.com/IIKMVB8.jpg');
+  background-size: cover;
 }
 
 .nav-wrapper, #footer{
@@ -11,8 +12,14 @@ body {
 #logo {
   margin-left: 15px;
 }
-main {
-  height: 75vh;
+
+.carousel{
+  margin: 15px;
+  border: 10px solid black;
+  width: 60vw;
+}
+.carousel-item {
+  background-color: #512DA8;
 }
 .photo_back{
   height: 100%;
@@ -24,20 +31,19 @@ main {
 #show_photo {
   display: block;
   vertical-align: middle;
-  box-shadow:
-    0px 47px 86px 9px rgba(0,0,0,0.52);
+  box-shadow:0px 47px 86px 9px rgba(0,0,0,0.52);
   border: 15px solid black;
 }
 #idx_photo{
-  border: 15px solid black;
+  box-shadow:0px 47px 86px 9px rgba(0,0,0,0.52);
 }
 .ftr_lnk {
   margin-right: 5vw;
 }
 #footer {
-  position: fixed;
+  position: absolute;
   width: 100%;
-  bottom: 0;
+  bottom: 0px;
 }
 .ftr {
   display: flex;
@@ -45,4 +51,8 @@ main {
 }
 #user_bar{
   margin-bottom: 0;
+}
+#profile_btn {
+  position: fixed;
+  bottom: 0;
 }
