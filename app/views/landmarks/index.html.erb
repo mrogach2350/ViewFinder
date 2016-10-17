@@ -44,12 +44,13 @@ $(document).on('turbolinks:load', function() {
     });
 
     <% for @landmark in @landmarks %>
-     var marker = new mapboxgl.Marker().setLngLat([<%= @landmark.lat %>, <%= @landmark.long %>]);
-     //$(marker).css('background-color', 'red' );
-     var popup = new mapboxgl.Popup({offset:[0, -30]})
-    .setText('Construction on the Washington Monument began in 1848.');
-     marker.setPopup(popup);
-     marker.addTo(this);
+      //TODO: find a way to make markers visible (geoJSON)
+       var marker = new mapboxgl.Marker().setLngLat([<%= @landmark.lat %>, <%= @landmark.long %>]);
+       //$(marker).css('background-color', 'red' );
+       var popup = new mapboxgl.Popup({offset:[0, -30]})
+      .setText('Construction on the Washington Monument began in 1848.');
+       marker.setPopup(popup);
+       marker.addTo(this);
     <% end %>
   });
 
