@@ -20,10 +20,15 @@
   </main>
 
   <footer>
-    <ul id="user_bar" class="collapsible" data-collapsible="accordion">
-      <li>
-        <div class="collapsible-header"><%= image_tag('user.png') %> <%= @user.first_name %> <%= @user.last_name %></div>
-        <div class="collapsible-body"><p><%= @user.bio %></p></div>
-      </li>
-    </ul>
+    <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Profile</a>
+    <div id="modal1" class="modal bottom-sheet">
+      <div class="modal-content">
+        <h4> Hello <%= @user.first_name %> <%= @user.last_name %>!</h4>
+        <p><%= @user.bio %></p>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Edit</a>
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Delete</a>
+      </div>
+    </div>
   </footer>
