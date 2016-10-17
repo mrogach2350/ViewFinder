@@ -1,10 +1,9 @@
 
-
   <main>
-    <div class="row">
+    <div class="row container">
       <%= Photo.all.each do |photo| %>
-          <div class="col s6 m3">
-            <div class="card small">
+          <div class="col s6">
+            <div class="card small" id="show_photo">
               <div class="card-image">
                 <img src= '<%= photo.url %>'>
                 <span class="card-title">Card Title</span>
@@ -17,18 +16,18 @@
           </div>
       <% end %>
     </div>
+    <a id="profile_btn" class="waves-effect waves-light btn modal-trigger" href="#modal1">Profile</a>
   </main>
 
-  <footer>
-    <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Profile</a>
-    <div id="modal1" class="modal bottom-sheet">
-      <div class="modal-content">
-        <h4> Hello <%= @user.first_name %> <%= @user.last_name %>!</h4>
-        <p><%= @user.bio %></p>
-      </div>
-      <div class="modal-footer">
-        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Edit</a>
-        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Delete</a>
-      </div>
+<footer>
+  <div id="modal1" class="modal bottom-sheet">
+    <div class="modal-content">
+      <h4> Hello <%= @user.first_name %> <%= @user.last_name %>!</h4>
+      <p><%= @user.bio %></p>
     </div>
-  </footer>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Edit</a>
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Delete</a>
+    </div>
+  </div>
+</footer>
