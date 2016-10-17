@@ -26,4 +26,5 @@ $(document).on('turbolinks:load', function(){
     });
   $('.materialboxed').materialbox();
   $('.modal-trigger').leanModal();
+  $('.carousel.carousel-slider').carousel({full_width: true});
 });
