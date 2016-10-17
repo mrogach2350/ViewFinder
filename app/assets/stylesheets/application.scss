@@ -14,14 +14,30 @@ body {
 main {
   height: 75vh;
 }
-
+.photo_back{
+  height: 100%;
+  background-image: url('http://i.imgur.com/IIKMVB8.jpg');
+  background-size: cover;
+  padding-top: 5vh;
+  padding-left: 7vw;
+}
+#show_photo {
+  display: block;
+  vertical-align: middle;
+  box-shadow:
+    0px 47px 86px 9px rgba(0,0,0,0.52);
+  border: 15px solid black;
+}
+#idx_photo{
+  border: 15px solid black;
+}
 .ftr_lnk {
   margin-right: 5vw;
 }
 #footer {
-  margin-top: 0;
-  margin-bottom: 0;
-  position: relative;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
 }
 .ftr {
   display: flex;
