@@ -6,9 +6,6 @@ Rails.application.routes.draw do
 		resources :photos, except: [:edit]
 	end
 
- 	get '/', to: 'photos#index', as: 'photos'
-
-
 	get '/users/:id', to: 'users#show', as: 'user'
 	post '/users', to: 'users#create'
 
