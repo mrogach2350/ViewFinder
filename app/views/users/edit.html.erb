@@ -1,0 +1,6 @@
+<%= form_for @user do |f| %>
+	<%= f.text_field :first_name, placeholder: 'Name' %>
+	<%= f.submit %>
+<% end %>
+
+<%= button_to "Delete", @user, method: :delete %>
