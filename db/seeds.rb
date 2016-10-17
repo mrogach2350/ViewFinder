@@ -22,7 +22,7 @@ User.create(
 	first_name: 'Mikey',
 	last_name: 'Rogachevsky',
 	email: 'mikey@ga.com',
-	password_digest: 1234,
+	password: '1234',
 	bio: FFaker::BaconIpsum.sentence
 	)
 
@@ -31,7 +31,7 @@ User.create(
 	first_name: 'Ashley',
 	last_name: 'Vernon',
 	email: 'ashley@ga.com',
-	password_digest: 1234,
+	password: '1234',
 	bio: FFaker::BaconIpsum.sentence
 	)
 
@@ -40,7 +40,7 @@ User.create(
 	first_name: 'Wolf',
 	last_name: 'Reese',
 	email: 'wolf@ga.com',
-	password_digest: 1234,
+	password: '1234',
 	bio: FFaker::BaconIpsum.sentence
 	)
 
@@ -49,7 +49,7 @@ User.create(
 	first_name: 'Sera',
 	last_name: 'Bak',
 	email: 'sera@ga.com',
-	password_digest: 1234,
+	password: '1234',
 	bio: FFaker::BaconIpsum.sentence
 	)
 
