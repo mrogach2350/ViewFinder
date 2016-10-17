@@ -1,6 +1,5 @@
+<div class="photo_back row">
 <% @photos.each do |photo| %>
-<div class="container">
-  <h1><%= photo.title %></h1> <br>
-  <%= image_tag photo.url %>
-</div>
+    <img class="col s4 offset-s1" id="idx_photo" src="<%= photo.url %>" alt="" />
 <% end %>
+</div>
