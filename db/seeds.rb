@@ -6,18 +6,23 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
 tables = ['users', 'landmarks', 'photos']
 
 tables.each do |table|
 	ActiveRecord::Base.connection.execute("TRUNCATE #{table} RESTART IDENTITY")
 end
 
+User.destroy_all
+Landmark.destroy_all
+Photo.destroy_all
+
 #user_id : 1
 User.create(
 	first_name: 'Mikey',
 	last_name: 'Rogachevsky',
 	email: 'mikey@ga.com',
-	password_digest: 1234,
+	password: '1234',
 	bio: FFaker::BaconIpsum.sentence
 	)
 
@@ -26,7 +31,7 @@ User.create(
 	first_name: 'Ashley',
 	last_name: 'Vernon',
 	email: 'ashley@ga.com',
-	password_digest: 1234,
+	password: '1234',
 	bio: FFaker::BaconIpsum.sentence
 	)
 
@@ -35,7 +40,7 @@ User.create(
 	first_name: 'Wolf',
 	last_name: 'Reese',
 	email: 'wolf@ga.com',
-	password_digest: 1234,
+	password: '1234',
 	bio: FFaker::BaconIpsum.sentence
 	)
 
@@ -44,7 +49,7 @@ User.create(
 	first_name: 'Sera',
 	last_name: 'Bak',
 	email: 'sera@ga.com',
-	password_digest: 1234,
+	password: '1234',
 	bio: FFaker::BaconIpsum.sentence
 	)
 
@@ -176,4 +181,3 @@ Photo.create(
 	user_id: 1,
 	landmark_id: 3
 	)
-
