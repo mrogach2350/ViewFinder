@@ -1,7 +1,21 @@
 <div class="row" id="map-container">
-  <div id="map" class="col s9">
-  </div>
-  <div id="landmark-sidebar" class="col s3">
+  <div id="map" class="col s6 m9"></div>
+  <div id="landmark-sidebar" class="col s6 m3">
+    <div class="row">
+      <% @landmarks.each do |lm, i| %>
+      <div class="col s12">
+        <div class="card hoverable landmark-list-card">
+          <div class="card-image">
+            <img class="responsive-img" src="<%= lm.description %>">
+            <span class="card-title"><%= lm.title %></span>
+          </div>
+          <div class="card-action">
+            <a class="blueify" href="/landmarks/<%= lm.id %>">Go to landmark</a>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    </div>
   </div>
 </div>
 
@@ -9,12 +23,48 @@
 $(document).on('turbolinks:load', function() {
   console.log('script running');
   mapboxgl.accessToken = 'pk.eyJ1Ijoid28xcGgiLCJhIjoiY2l1YThnemRoMDAxeTJ5bDcyYW82MTZxMSJ9.6KW1QasMXf9JJ2M81bQ-1g'
-  var sfCoords = new mapboxgl.LngLat(	-122.431297, 37.773972);
+  var sfCoords = new mapboxgl.LngLat(	-122.4350, 37.7609);
+  var imageUrl = "https://static.pexels.com/photos/90829/pexels-photo-90829.jpeg";
+  var coords = [
+    [-122.429383, 37.785413],
+    [-122.389907, 37.783583],
+    [-122.400869, 37.760493],
+    [-122.435004, 37.760908],
+  ]
   var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/dark-v9',
     center: sfCoords,
-    zoom: 11
+    zoom: 10.5
   });
+  map.on('load', function(){
+    console.log('map loaded');
+    map.easeTo({
+      zoom: 11.5,
+      bearing: 10,
+      duration: 2000
+    });
+  });
+  var clicks = 0;
+  $(".landmark-list-card").click(function() {
+    clicks +=1;
+    if(clicks % 2 != 0) {
+    console.log('odd');
+    map.flyTo({
+      zoom: 18,
+      center: new mapboxgl.LngLat(-122.40128019999997, 37.790841),
+      pitch: 180,
+    });
+  } else {
+    console.log('even');
+    map.flyTo({
+      zoom: 11.5,
+      pitch: -180,
+    });
+  }
+ });
+ <% for @landmark in @landmarks %>
+  console.log('<%= @landmark.title %>');
+ <% end %>
 });
 </script>
