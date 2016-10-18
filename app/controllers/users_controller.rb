@@ -5,13 +5,14 @@ class UsersController < ApplicationController
 	end
 
 	def create
-		@user = User.new(user_params)
-		# login(@user)
-		# redirect_to @user
+		@user = User.new(user_params)		
 		if @user.save
+			login(@user)
+			flash[:notice] = "Successfully logged in."
 			redirect_to @user
 		else
-			render :new
+			flash[:error] = @user.errors.full_messages.to_sentence
+			redirect_to photos_path
 		end
 	end
 
@@ -37,6 +38,6 @@ class UsersController < ApplicationController
 
 	private
 		def user_params
-			params.require(:user).permit(:first_name, :last_name, :email, :password)
+			params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
 		end
 end
