@@ -1,11 +1,9 @@
 //=require landmarks
 //=require_tree .
 @import "materialize";
-body {
-  background-image: url('http://i.imgur.com/IIKMVB8.jpg');
-  background-size: cover;
+small {
+  text-align: center;
 }
-
 .nav-wrapper, #footer{
   background-color: #512DA8;
 }
@@ -21,13 +19,7 @@ body {
 .carousel-item {
   background-color: #512DA8;
 }
-.photo_back{
-  height: 100%;
-  background-image: url('http://i.imgur.com/IIKMVB8.jpg');
-  background-size: cover;
-  padding-top: 5vh;
-  padding-left: 7vw;
-}
+
 #show_photo {
   display: block;
   vertical-align: middle;
@@ -41,7 +33,7 @@ body {
   margin-right: 5vw;
 }
 #footer {
-  position: absolute;
+  position: fixed;
   width: 100%;
   bottom: 0px;
 }

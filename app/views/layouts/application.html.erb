@@ -9,6 +9,7 @@
     <link href='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.css' rel='stylesheet' />
     <script src='https://api.mapbox.com/mapbox-gl-js/v0.26.0/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v0.26.0/mapbox-gl.css' rel='stylesheet' />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
 
   <body>
@@ -16,14 +17,17 @@
       <div class="nav-wrapper grey-text text-lighten-4">
         <a href="/" id="logo"class="brand-logo col s5 offset-s1">ViewFinder</a>
         <ul id="nav-mobile" class="right">
-          <% if @current_user %>
+
+          <li><a href="/landmarks">Map</a></li>
+          <% if current_user %>
+            <li><a href="<%=user_path(current_user)%>">Profile</a></li>
             <li><a href="#" data-activates="upload" class="side_btn">Upload</a></li>
             <li><a href="/logout">Logout</a></li>
           <% else %>
             <li><a href="#" data-activates="login" class="side_btn">Login</a></li>
             <li><a href="#" data-activates="sign_up" class="side_btn">Sign Up</a></li>
           <% end %>
-          
+
         </ul>
       </div>
 
