@@ -1,4 +1,5 @@
 //=require landmarks
+//= require social-share-button
 //=require_tree .
 @import "materialize";
 small {
@@ -64,4 +65,9 @@ small {
   max-height: 200px;
   width: 100%;
   height: auto;
+}
+.social-share-button {
+  margin: 15px 0;
+  display: flex;
+  flex-direction: column;
 }
