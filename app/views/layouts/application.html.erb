@@ -13,6 +13,7 @@
   </head>
 
   <body>
+    <%= cloudinary_js_config %>
     <nav>
       <div class="nav-wrapper grey-text text-lighten-4">
         <a href="/" id="logo"class="brand-logo col s5 offset-s1">ViewFinder</a>
@@ -62,11 +63,11 @@
 
     <ul id="upload" class="side-nav">
       <div class="container">
-        <p>
+        <!-- <p>
           <strong>License</strong>
-        </p>
-        <form action="#">
-          <p>
+        </p> -->
+        <!-- <form action="#">
+           <p>
             <input name="upload" type="radio" id="test1" />
             <label for="test1">Attribution</label>
           </p>
@@ -90,8 +91,13 @@
             <input name="upload" type="radio" id="test6" />
             <label for="test6">Attribution-NonCommercial-NoDerivs</label>
           </p>
-          </form>
-          <a href="https://creativecommons.org/licenses/">Learn More</a>
+          </form> -->
+          <!-- <a href="https://creativecommons.org/licenses/">Learn More</a> -->
+
+          <%= form_tag(uploads_path, :method => :post) do |f| %>
+            <%= cl_image_upload_tag(:image_file) %>
+          <%= submit_tag "Submit" %>
+          <% end %>
       </div>
     </ul>
 

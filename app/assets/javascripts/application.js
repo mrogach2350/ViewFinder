@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery.turbolinks
 //= require jquery_ujs
+//= require cloudinary
 //= require turbolinks
 //= require app
 //= require materialize-sprockets
@@ -27,4 +28,10 @@ $(document).on('turbolinks:load', function(){
   $('.materialboxed').materialbox();
   $('.modal-trigger').leanModal();
   $('.carousel.carousel-slider').carousel({full_width: true});
+  console.log('runnin runnnnning');
+  $(function() {
+        if($.fn.cloudinary_fileupload !== undefined) {
+          $("input.cloudinary-fileupload[type=file]").cloudinary_fileupload();
+        }
+  });
 });

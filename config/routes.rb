@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
 	get '/', to: 'photos#index', as: 'photos'
-
-	resources :landmarks, only: [:index, :show] do 
+	post '/upload', to: 'uploads#upload', as: 'uploads'
+	resources :landmarks, only: [:index, :show] do
 		resources :photos, except: [:edit]
 	end
 
@@ -14,5 +14,5 @@ Rails.application.routes.draw do
 
 	post '/sessions', to: 'sessions#create'
 	get '/logout', to: 'sessions#destroy'
-	
+
 end
