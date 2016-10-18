@@ -1,23 +1,20 @@
 
-  <main>
-    <div class="row container">
-      <%= Photo.all.each do |photo| %>
-          <div class="col s6">
-            <div class="card small" id="show_photo">
-              <div class="card-image">
-                <img src= '<%= photo.url %>'>
-                <span class="card-title">Card Title</span>
-              </div>
-              <div class="card-content">
-                <p>I am a very simple card. I am good at containing small bits of information.
-                I am convenient because I require little markup to use effectively.</p>
-              </div>
-            </div>
+<div class="row container">
+  <%= Photo.all.each do |photo| %>
+      <div class="col s6">
+        <div class="card small" id="show_photo">
+          <div class="card-image">
+            <img src= '<%= photo.url %>'>
+            <span class="card-title"><%= photo.title %></span>
           </div>
-      <% end %>
-    </div>
-    <a id="profile_btn" class="waves-effect waves-light btn modal-trigger" href="#modal1">Profile</a>
-  </main>
+          <div class="card-content">
+            <p><%= photo.caption %></p>
+          </div>
+        </div>
+      </div>
+  <% end %>
+</div>
+<a id="profile_btn" class="waves-effect waves-light btn modal-trigger" href="#modal1">Profile</a>
 
 <footer>
   <div id="modal1" class="modal bottom-sheet">
