@@ -158,7 +158,7 @@ lombard_street = Landmark.create(
 	description: FFaker::DizzleIpsum.sentence,	
 	lat: -122.4187,
 	long: 37.8021,
-	url: 'http://xpenology.org/wp-content/themes/qaengine/img/default-thumbnail.jpg'
+	url: 'http://imgur.com/6plIZoX'
 	)
 
 Photo.create(
