@@ -1,21 +1,76 @@
 <div class="row" id="map-container">
-  <div id="map" class="col s9">
-  </div>
-  <div id="landmark-sidebar" class="col s3">
+  <div id="map" class="col s6 m9"></div>
+  <div id="landmark-sidebar" class="col s6 m3">
+    <div class="row">
+      <div class="col s12">
+        <button class="btn blueify-bgk" id="map-reset">Reset</button>
+      </div>
+      <% @landmarks.each do |lm, i| %>
+      <div class="col s12">
+        <div class="card hoverable landmark-list-card" data-lat="<%=lm.lat%>" data-lng="<%=lm.long%>">
+          <div class="card-image">
+            <img class="responsive-img" src="<%= lm.url %>">
+            <span class="card-title"><%= lm.title %></span>
+          </div>
+          <div class="card-action">
+            <a class="blueify" href="/landmarks/<%= lm.id %>">Landmark page</a>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    </div>
   </div>
 </div>
 
 <script>
 $(document).on('turbolinks:load', function() {
-  console.log('script running');
   mapboxgl.accessToken = 'pk.eyJ1Ijoid28xcGgiLCJhIjoiY2l1YThnemRoMDAxeTJ5bDcyYW82MTZxMSJ9.6KW1QasMXf9JJ2M81bQ-1g'
-  var sfCoords = new mapboxgl.LngLat(	-122.431297, 37.773972);
+  var sfCoords = new mapboxgl.LngLat(	-122.4350, 37.7609);
+
   var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/dark-v9',
     center: sfCoords,
-    zoom: 11
+    zoom: 10.5
   });
-  console.log(map);
+
+  map.on('load', function(){
+    console.log('map loaded');
+    map.easeTo({
+      zoom: 11.5,
+      bearing: 10,
+      duration: 2000,
+      center: sfCoords
+    });
+
+    <% for @landmark in @landmarks %>
+     var marker = new mapboxgl.Marker().setLngLat([<%= @landmark.lat %>, <%= @landmark.long %>]);
+     //$(marker).css('background-color', 'red' );
+     var popup = new mapboxgl.Popup({offset:[0, -30]})
+    .setText('Construction on the Washington Monument began in 1848.');
+     marker.setPopup(popup);
+     marker.addTo(this);
+    <% end %>
+  });
+
+
+  $('#map-reset').click(function() {
+    map.flyTo({
+      zoom: 11.5,
+      pitch: -180,
+      center: sfCoords
+    });
+  });
+
+  $('.landmark-list-card').click(function() {
+    var lat = $(this).attr('data-lat');
+    var lng = $(this).attr('data-lng');
+
+    map.flyTo({
+      zoom: 18,
+      center: new mapboxgl.LngLat(lat, lng),
+      pitch: 180
+    });
+  });
 });
 </script>
