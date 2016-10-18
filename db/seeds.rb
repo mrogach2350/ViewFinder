@@ -59,7 +59,7 @@ golden_gate = Landmark.create(
 	description: FFaker::DizzleIpsum.sentence,
 	lat: -122.4783,
 	long: 37.8199,
-	url: 'http://imgur.com/CZmb3Qp'
+	url: 'http://imgur.com/CZmb3Qp.jpg'
 	)
 
 #landmark_id : 2
@@ -68,7 +68,7 @@ bay_bridge = Landmark.create(
 	description: FFaker::DizzleIpsum.sentence,	
 	lat: -122.3778,
 	long: 37.7983,
-	url: 'http://imgur.com/BvgKy9t'
+	url: 'http://imgur.com/BvgKy9t.jpg'
 	)
 
 #landmark_id : 3
@@ -77,7 +77,7 @@ coit_tower = Landmark.create(
 	description: FFaker::DizzleIpsum.sentence,	
 	lat: -122.4058,
 	long: 37.8024,
-	url: 'http://imgur.com/1CF6yPl'
+	url: 'http://imgur.com/1CF6yPl.jpg'
 	)
 
 #landmark_id : 4
@@ -86,7 +86,7 @@ ferry_building = Landmark.create(
 	description: FFaker::DizzleIpsum.sentence,	
 	lat: -122.3933,
 	long: 37.7956,
-	url: 'http://imgur.com/2rVDzWa'
+	url: 'http://imgur.com/2rVDzWa.jpg'
 	)
 
 #landmark_id : 5
@@ -95,7 +95,7 @@ palace_of_fine_arts = Landmark.create(
 	description: FFaker::DizzleIpsum.sentence,	
 	lat: -122.4484,
 	long: 37.8029,
-	url: 'http://imgur.com/XK0af6z'
+	url: 'http://imgur.com/XK0af6z.jpg'
 	)
 
 #landmark_id : 6
@@ -104,7 +104,7 @@ grace_cathedral = Landmark.create(
 	description: FFaker::DizzleIpsum.sentence,	
 	lat: -122.4134,
 	long: 37.7920,
-	url: 'http://imgur.com/LqrkIMd'
+	url: 'http://imgur.com/LqrkIMd.jpg'
 	)
 
 #landmark_id : 7
@@ -113,7 +113,7 @@ city_hall = Landmark.create(
 	description: FFaker::DizzleIpsum.sentence,	
 	lat: -122.4188,
 	long: 37.7793,
-	url: 'http://imgur.com/t51HqJ8'
+	url: 'http://imgur.com/t51HqJ8.jpg'
 	)
 
 #landmark_id : 8
@@ -122,7 +122,7 @@ sfmoma = Landmark.create(
 	description: FFaker::DizzleIpsum.sentence,	
 	lat: -122.4009,
 	long: 37.7855,
-	url: 'http://imgur.com/x6fQSTw'
+	url: 'http://imgur.com/x6fQSTw.jpg'
 	)
 
 #landmark_id : 9
@@ -131,7 +131,7 @@ fort_mason = Landmark.create(
 	description: FFaker::DizzleIpsum.sentence,	
 	lat: -122.4321,
 	long: 37.8064,
-	url: 'http://xpenology.org/wp-content/themes/qaengine/img/default-thumbnail.jpg'
+	url: 'http://imgur.com/ZZ119aC.jpg'
 	)
 
 #landmark_id : 10
@@ -140,7 +140,7 @@ cupids_span = Landmark.create(
 	description: FFaker::DizzleIpsum.sentence,	
 	lat: -122.3900,
 	long: 37.7916,
-	url: 'http://imgur.com/p1XbePI'
+	url: 'http://imgur.com/p1XbePI.jpg'
 	)
 
 #landmark_id : 11
@@ -149,7 +149,7 @@ vaillancourt_fountain = Landmark.create(
 	description: FFaker::DizzleIpsum.sentence,	
 	lat: -122.3954,
 	long: 37.7955,
-	url: 'http://imgur.com/6jAIBei'
+	url: 'http://imgur.com/6jAIBei.jpg'
 	)
 
 #landmark_id : 12
@@ -158,7 +158,7 @@ lombard_street = Landmark.create(
 	description: FFaker::DizzleIpsum.sentence,	
 	lat: -122.4187,
 	long: 37.8021,
-	url: 'http://imgur.com/6plIZoX'
+	url: 'http://imgur.com/6plIZoX.jpg'
 	)
 
 Photo.create(

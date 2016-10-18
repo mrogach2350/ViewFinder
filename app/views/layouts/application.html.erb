@@ -16,7 +16,7 @@
       <div class="nav-wrapper grey-text text-lighten-4">
         <a href="/" id="logo"class="brand-logo col s5 offset-s1">ViewFinder</a>
         <ul id="nav-mobile" class="right">
-          <% if current_user %>
+          <% if @current_user %>
             <li><a href="#" data-activates="upload" class="side_btn">Upload</a></li>
             <li><a href="/logout">Logout</a></li>
           <% else %>
