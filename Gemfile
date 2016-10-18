@@ -30,6 +30,8 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'bcrypt', '~> 3.1.7'
 gem 'ffaker'
+gem 'cloudinary'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
