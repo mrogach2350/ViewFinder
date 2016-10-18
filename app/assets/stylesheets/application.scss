@@ -1,7 +1,9 @@
 //=require landmarks
 //=require_tree .
 @import "materialize";
-
+small {
+  text-align: center;
+}
 .nav-wrapper, #footer{
   background-color: #512DA8;
 }
