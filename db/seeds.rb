@@ -65,7 +65,7 @@ golden_gate = Landmark.create(
 #landmark_id : 2
 bay_bridge = Landmark.create(
 	title: 'Bay Bridge',
-	description: FFaker::DizzleIpsum.sentence,	
+	description: FFaker::DizzleIpsum.sentence,
 	lat: -122.3778,
 	long: 37.7983,
 	url: 'http://xpenology.org/wp-content/themes/qaengine/img/default-thumbnail.jpg'
@@ -74,7 +74,7 @@ bay_bridge = Landmark.create(
 #landmark_id : 3
 coit_tower = Landmark.create(
 	title: 'Coit Tower',
-	description: FFaker::DizzleIpsum.sentence,	
+	description: FFaker::DizzleIpsum.sentence,
 	lat: -122.4058,
 	long: 37.8024,
 	url: 'http://xpenology.org/wp-content/themes/qaengine/img/default-thumbnail.jpg'
@@ -83,7 +83,7 @@ coit_tower = Landmark.create(
 #landmark_id : 4
 ferry_building = Landmark.create(
 	title: 'Ferry Building',
-	description: FFaker::DizzleIpsum.sentence,	
+	description: FFaker::DizzleIpsum.sentence,
 	lat: -122.3933,
 	long: 37.7956,
 	url: 'http://xpenology.org/wp-content/themes/qaengine/img/default-thumbnail.jpg'
@@ -92,7 +92,7 @@ ferry_building = Landmark.create(
 #landmark_id : 5
 palace_of_fine_arts = Landmark.create(
 	title: 'Palace of Fine Arts',
-	description: FFaker::DizzleIpsum.sentence,	
+	description: FFaker::DizzleIpsum.sentence,
 	lat: -122.4484,
 	long: 37.8029,
 	url: 'http://xpenology.org/wp-content/themes/qaengine/img/default-thumbnail.jpg'
@@ -101,7 +101,7 @@ palace_of_fine_arts = Landmark.create(
 #landmark_id : 6
 grace_cathedral = Landmark.create(
 	title: 'Grace Cathedral',
-	description: FFaker::DizzleIpsum.sentence,	
+	description: FFaker::DizzleIpsum.sentence,
 	lat: -122.4134,
 	long: 37.7920,
 	url: 'http://xpenology.org/wp-content/themes/qaengine/img/default-thumbnail.jpg'
@@ -110,7 +110,7 @@ grace_cathedral = Landmark.create(
 #landmark_id : 7
 city_hall = Landmark.create(
 	title: 'City Hall',
-	description: FFaker::DizzleIpsum.sentence,	
+	description: FFaker::DizzleIpsum.sentence,
 	lat: -122.4188,
 	long: 37.7793,
 	url: 'http://xpenology.org/wp-content/themes/qaengine/img/default-thumbnail.jpg'
@@ -119,7 +119,7 @@ city_hall = Landmark.create(
 #landmark_id : 8
 sfmoma = Landmark.create(
 	title: 'SF Museum of Modern Art',
-	description: FFaker::DizzleIpsum.sentence,	
+	description: FFaker::DizzleIpsum.sentence,
 	lat: -122.4009,
 	long: 37.7855,
 	url: 'http://xpenology.org/wp-content/themes/qaengine/img/default-thumbnail.jpg'
@@ -128,7 +128,7 @@ sfmoma = Landmark.create(
 #landmark_id : 9
 fort_mason = Landmark.create(
 	title: 'Fort Mason',
-	description: FFaker::DizzleIpsum.sentence,	
+	description: FFaker::DizzleIpsum.sentence,
 	lat: -122.4321,
 	long: 37.8064,
 	url: 'http://xpenology.org/wp-content/themes/qaengine/img/default-thumbnail.jpg'
@@ -137,7 +137,7 @@ fort_mason = Landmark.create(
 #landmark_id : 10
 cupids_span = Landmark.create(
 	title: "Cupid's Span",
-	description: FFaker::DizzleIpsum.sentence,	
+	description: FFaker::DizzleIpsum.sentence,
 	lat: -122.3900,
 	long: 37.7916,
 	url: 'http://xpenology.org/wp-content/themes/qaengine/img/default-thumbnail.jpg'
@@ -146,7 +146,7 @@ cupids_span = Landmark.create(
 #landmark_id : 11
 vaillancourt_fountain = Landmark.create(
 	title: 'Vaillancourt Fountain',
-	description: FFaker::DizzleIpsum.sentence,	
+	description: FFaker::DizzleIpsum.sentence,
 	lat: -122.3954,
 	long: 37.7955,
 	url: 'http://xpenology.org/wp-content/themes/qaengine/img/default-thumbnail.jpg'
@@ -155,7 +155,7 @@ vaillancourt_fountain = Landmark.create(
 #landmark_id : 12
 lombard_street = Landmark.create(
 	title: 'Lombard Street',
-	description: FFaker::DizzleIpsum.sentence,	
+	description: FFaker::DizzleIpsum.sentence,
 	lat: -122.4187,
 	long: 37.8021,
 	url: 'http://xpenology.org/wp-content/themes/qaengine/img/default-thumbnail.jpg'
@@ -163,6 +163,7 @@ lombard_street = Landmark.create(
 
 Photo.create(
 	title: 'Photo Title for GG Bridge',
+	caption: FFaker::DizzleIpsum.sentence,
 	url: 'http://images.mentalfloss.com/sites/default/files/styles/article_640x430/public/istock_000001168352_small.jpg',
 	user_id: 1,
 	landmark_id: 1
@@ -170,6 +171,7 @@ Photo.create(
 
 Photo.create(
 	title: 'Photo Title for Bay Bridge',
+	caption: FFaker::DizzleIpsum.sentence,
 	url: 'http://www.dot.ca.gov/hq/esc/tollbridge/SFOBB/jpgs/SFOBBnight.jpg',
 	user_id: 1,
 	landmark_id: 2
@@ -177,6 +179,7 @@ Photo.create(
 
 Photo.create(
 	title: 'Photo Title for Coit Tower',
+	caption: FFaker::DizzleIpsum.sentence,
 	url: 'http://cdn.funcheap.com/wp-content/uploads/2013/10/coit-tower-2.jpg',
 	user_id: 1,
 	landmark_id: 3
