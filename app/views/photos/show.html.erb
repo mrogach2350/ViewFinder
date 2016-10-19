@@ -1,8 +1,12 @@
+
+
+
 <div class="row">
   <div class="col s1">
     <%= social_share_button_tag(@photo.url) %>
   </div>
   <div class="col s6">
-    <img id="show_photo" class="materialboxed" data-caption="<%= @photo.title %>" src="<%= @photo.url %>" alt="" />
+    <%= cl_image_tag(@photo.url, id: 'show_photo', class: 'materialboxed' ) %>
+ 
   </div>
 </div>

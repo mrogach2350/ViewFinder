@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery.turbolinks
 //= require jquery_ujs
+//= require cloudinary
 //= require turbolinks
 //= require app
 //= require materialize-sprockets
@@ -29,6 +30,7 @@ $(document).on('turbolinks:load', function(){
   $('.modal-trigger').leanModal();
   $('.carousel.carousel-slider').carousel({full_width: true});
 
+
   $('#edit-user-btn').on('click', function (e) {
   	e.preventDefault();
   	$(this).offsetParent().find('.hidden').removeClass('hidden');
@@ -41,14 +43,16 @@ $(document).on('turbolinks:load', function(){
 	//   	$(this).closest('#edit-user').addClass('hidden');
  //  	});
 
-
-
   });
 
+  console.log('runnin runnnnning');
+  $(function() {
+        if($.fn.cloudinary_fileupload !== undefined) {
+          $("input.cloudinary-fileupload[type=file]").cloudinary_fileupload();
+          $("input.cloudinary-fileupload[type=file]").attr("accept", "image/*");
+          $("input.cloudinary-fileupload[type=file]").attr("capture", "camera");
+        }
+  });
 
- 
 });
 
-// $destinationsList.on('click', '.updateBtn', function() {
-//   		$(this).parent().find('.hidden').removeClass('hidden');	
-//   	})

@@ -20,6 +20,12 @@ class PhotosController < ApplicationController
 
   def create
     @photo = Photo.create(photo_params)
+    if params[:url].present?
+      @preload = Cloudinary::PreloadedFile.new(params[:url])
+      @url = @preload.identifier
+      #Cloudinary::Uploader.upload(params[:file], :public_id => 'test')
+    end
+    @photo.url = @url
     if @photo.save
       redirect_to landmark_photo_path(@photo.landmark, @photo) #@photo.landmark_id, @photo.id works
 
@@ -42,11 +48,11 @@ class PhotosController < ApplicationController
 
   private
     def photo_params
-      photo_params = params.require(:photo).permit(:title, :caption)
-      foobar = photo_params.merge({landmark_id: Landmark.first.id, user_id: User.first.id})
-      # photo_params.merge({landmark_id: params[:landmark_id], user_id: current_user.id})
-      Rails.logger.info "The photo params is: #{foobar.inspect}"
-      foobar
+      photo_params = params.require(:photo).permit(:title, :caption, :url)
+      # foobar = photo_params.merge({landmark_id: Landmark.first.id, user_id: User.first.id})
+      photo_params.merge({landmark_id: params[:landmark_id], user_id: current_user.id})
+      # Rails.logger.info "The photo params is: #{foobar.inspect}"
+      # foobar
     end
 end
 

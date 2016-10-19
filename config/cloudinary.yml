@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: djrehlewg
+  api_key: '127514562993761'
+  api_secret: SSupZA5r4WE08Xl5IwLH8x3A2-s
+  enhance_image_tag: true
+  static_image_support: true
+production:
+  cloud_name: djrehlewg
+  api_key: '127514562993761'
+  api_secret: SSupZA5r4WE08Xl5IwLH8x3A2-s
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: djrehlewg
+  api_key: '127514562993761'
+  api_secret: SSupZA5r4WE08Xl5IwLH8x3A2-s
+  enhance_image_tag: true
+  static_image_support: true

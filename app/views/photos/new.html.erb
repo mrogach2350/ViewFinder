@@ -8,6 +8,8 @@
 	<%= f.label "Your Tip"  %>
 	<%= f.text_area :caption, placeholder: "Tell Us About Your Photo" %> <br>
 
+    <%= cl_image_upload_tag(:url) %>
+
 
 	<%= f.submit "Save"%>
 
