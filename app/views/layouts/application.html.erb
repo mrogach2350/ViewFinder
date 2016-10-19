@@ -20,8 +20,8 @@
     <nav>
       <div class="nav-wrapper grey-text text-lighten-4">
         <a href="/" id="logo"class="brand-logo col s5 offset-s1">ViewFinder</a>
-        <ul id="nav-mobile" class="right">
-
+        <a data-activates="mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
           <li><a href="/landmarks">Map</a></li>
           <% if current_user %>
             <li><a href="<%=user_path(current_user)%>">Profile</a></li>
@@ -31,7 +31,17 @@
             <li><a href="#" data-activates="login" class="side_btn">Login</a></li>
             <li><a href="#" data-activates="sign_up" class="side_btn">Sign Up</a></li>
           <% end %>
-
+        </ul>
+        <ul id="mobile" class="side-nav">
+          <li><a href="/landmarks">Map</a></li>
+          <% if current_user %>
+            <li><a href="<%=user_path(current_user)%>">Profile</a></li>
+            <li><a href="#" data-activates="upload" class="side_btn">Upload</a></li>
+            <li><a href="/logout">Logout</a></li>
+          <% else %>
+            <li><a href="#" data-activates="login" class="side_btn">Login</a></li>
+            <li><a href="#" data-activates="sign_up" class="side_btn">Sign Up</a></li>
+          <% end %>
         </ul>
       </div>
 
@@ -112,7 +122,7 @@
         </p>
       <% end %>
     </div>
-    
+
     <%= yield %>
 
     <footer id="footer" class="page-footer">
