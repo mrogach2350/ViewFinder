@@ -19,4 +19,7 @@ Rails.application.routes.draw do
 
 	post '/comments', to: 'comments#create'
 
+	get '/about', to: 'users#index', as: 'about'
+
+	get '/rules', to: 'sessions#index', as: 'rules'
 end
