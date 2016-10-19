@@ -2,13 +2,20 @@
 
 
 <div class="row">
-  <div class="col s6">
+  <div class="col s4">
     <%= cl_image_tag(@photo.url, id: 'show_photo', class: 'materialboxed' ) %>
+  </div>
+</div>
+<div id="photo-show-btns" class="row">
+  <div class="col s12">
     <div class="col s6">
-      <%= social_share_button_tag(@photo.url) %>
+      <a href="/landmarks/<%= @photo.landmark_id %>" class="center waves-effect waves-light btn-flat"><i class="material-icons right">language</i>Landmark</a>
     </div>
-    <div class="col s6">
-      <a href="/landmarks/<%= @photo.landmark_id %>" class="center waves-effect waves-light btn"><i class="material-icons right">language</i><%= @landmark.title %></a>
+    <div class="col 6">
+      <a href="/users/<%= @photo.user_id %>" class="center waves-effect waves-light btn-flat"><i class="material-icons right">perm_identity</i>Artist</a>
+    </div>
+    <div class="center col s10 offset-s2">
+      <%= social_share_button_tag(@photo.url) %>
     </div>
   </div>
 </div>
