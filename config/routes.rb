@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 	get '/', to: 'photos#index', as: 'photos'
 	post '/upload', to: 'uploads#upload', as: 'uploads'
 	resources :landmarks, only: [:index, :show] do
+		member { post :vote }
 	resources :photos, except: [:edit]
 	end
 
