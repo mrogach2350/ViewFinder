@@ -19,28 +19,29 @@
     </div>
   </div>
 
-  <div class="col s5">
-    <h4>
-      <%= @photo.comment_threads.count == 0 ? "no" : @photo.comment_threads.count %> comments
-    </h4>
-    <div class="comments-container col s12">
-      <% @comments = @photo.comment_threads %>
-      <% @comments.each do |comment| %>
-          <p><%= comment.body %><br></p>
-          <p><%= comment.user.first_name %><br></p>
-          <hr>
+  <div class="comments-column col s5">
+    <div class="comments-header col s12">
+      <% if current_user %>
+        <%= form_for @new_comment do |f| %>
+          <%= f.hidden_field :commentable_id, value: @new_comment.commentable_id %>
+          <%= f.hidden_field :commentable_type, value: @new_comment.commentable_type %>
+          <%= f.text_area :body%>
+          <%= submit_tag "Post comment", class: 'btn btn-primary' %>
+        <% end %>
       <% end %>
     </div>
 
-    <div class="comments-header col s12">
-    	<% if current_user %>
-    		<%= form_for @new_comment do |f| %>
-      		<%= f.hidden_field :commentable_id, value: @new_comment.commentable_id %>
-      		<%= f.hidden_field :commentable_type, value: @new_comment.commentable_type %>
-        	<%= f.text_area :body%>
-        	<%= submit_tag "Post comment", class: 'btn btn-primary' %>
-    		<% end %>
-    	<% end %>
+    <div class="comments-container col s12">
+      <h4>Comments</h4>
+      <% @comments = @photo.comment_threads %>
+      <% @comments.each do |comment| %>
+            <div class="comment-card">
+              <a class="col s4 " href="/users/<%= comment.user.id %>"><h5><%= comment.user.first_name %> <br> <%= comment.user.last_name %></h5></a>
+              <p class="col s8 "><%= comment.body %></p>
+            </div>
+      <% end %>
     </div>
+
+
   </div>
 </div>
