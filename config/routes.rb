@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
-	get '/', to: 'photos#index', as: 'photos'
+	root "landmarks#index"
 	post '/upload', to: 'uploads#upload', as: 'uploads'
-	
+
 	resources :landmarks, only: [:index, :show] do
 		resources :photos, except: [:edit]
 	end
