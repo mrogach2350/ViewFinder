@@ -35,7 +35,7 @@ $(document).on('turbolinks:load', function(){
   	e.preventDefault();
   	$(this).offsetParent().find('.hidden').removeClass('hidden');
   	$(this).offsetParent().find('#user-profile').addClass('hidden');
-  
+
 	// $('#save-user-btn').on('click', function (e) {
 	//   	e.preventDefault();
 	//   	console.log('hi!')
@@ -55,4 +55,3 @@ $(document).on('turbolinks:load', function(){
   });
 
 });
-
