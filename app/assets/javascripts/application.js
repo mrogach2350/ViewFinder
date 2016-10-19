@@ -32,7 +32,7 @@ $(document).on('turbolinks:load', function(){
   $('#edit-user-btn').on('click', function (e) {
   	e.preventDefault();
   	$(this).offsetParent().find('.hidden').removeClass('hidden');
-  	$(this).offsetParent().find('#user-name').addClass('hidden');
+  	$(this).offsetParent().find('#user-profile').addClass('hidden');
   
 	// $('#save-user-btn').on('click', function (e) {
 	//   	e.preventDefault();
