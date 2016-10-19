@@ -10,7 +10,7 @@ class PhotosController < ApplicationController
   def show
     @photo = Photo.find_by_id(params[:id])
     @user = User.find_by(id: @photo.user_id)
-    @landmark = Landmark.find_by(id: @photo.user_id)
+    @landmark = Landmark.find_by(id: @photo.landmark_id)
   end
 
   def new

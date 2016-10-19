@@ -10,10 +10,9 @@
         <div class="card hoverable landmark-list-card" data-lat="<%=lm.lat%>" data-lng="<%=lm.long%>">
           <div class="card-image">
             <img class="responsive-img" src="<%= lm.url %>">
-            <span class="card-title"><%= lm.title %></span>
           </div>
           <div class="card-action">
-            <a class="blueify" href="/landmarks/<%= lm.id %>">Landmark page</a>
+            <a class="blueify" href="/landmarks/<%= lm.id %>"><%= lm.title %></a>
           </div>
         </div>
       </div>

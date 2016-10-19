@@ -1,6 +1,6 @@
 
 <div id="photo_display" class="row">
-  <% Photo.all.each do |photo| %>
+  <% Photo.find_by user_id: @user.id do |photo| %>
       <div class="col s6 m4 l3">
 
         <div class="card" id="show_photo">

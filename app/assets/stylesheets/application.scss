@@ -20,10 +20,9 @@ small {
 .carousel{
   margin: 15px;
   border: 10px solid black;
-  width: 60vw;
+  height: 25vh;
+  width: auto;
 }
-
-
 #show_photo {
   display: block;
   vertical-align: middle;
@@ -65,17 +64,18 @@ small {
   flex-wrap: wrap;
   align-items: baseline;
 }
-#card_title {
-  font-size: 1.3vw;
-}
 #card_photo {
   display: block;
   max-height: 200px;
   width: 100%;
   height: auto;
 }
+#carousel_photo {
+  height: auto;
+  width: 100%;
+}
 .social-share-button {
   margin: 15px 0;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 }
