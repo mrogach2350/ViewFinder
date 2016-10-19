@@ -30,7 +30,10 @@ $(document).on('turbolinks:load', function(){
   $('.materialboxed').materialbox();
   $('.modal-trigger').leanModal();
   $('.carousel.carousel-slider').carousel({full_width: true});
-
+  
+  setTimeout(function(){
+    $('#flash').remove();
+  }, 5000);
 
   $('#edit-user-btn').on('click', function (e) {
   	e.preventDefault();
