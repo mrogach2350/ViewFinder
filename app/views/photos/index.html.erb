@@ -1,7 +1,7 @@
 <div class="carousel carousel-slider" data-indicators="true">
   <% @photos.each do |photo| %>
     <div class="carousel-item image" href="#one!">
-      <h2 class="center black-text"><%= photo.title %></h2>
+      <!-- <h2 class="center black-text"><%= photo.title %></h2> -->
       <%= cl_image_tag(photo.url) %>
     </div>
   <% end %>
