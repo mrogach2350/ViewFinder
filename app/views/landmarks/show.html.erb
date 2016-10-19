@@ -15,3 +15,6 @@
       </div>
   <% end %>
 </div>
+<% if current_user %>
+ <a href="/landmarks/<%= @landmark.id %>/photos/new" class="waves-effect waves-teal btn-flat">Upload</a>
+<% end %>
