@@ -1,12 +1,10 @@
 
 <div id="photo_display" class="row">
-  <% Photo.find_by user_id: @user.id do |photo| %>
+  <%  @user.photos.each do |photo| %>
       <div class="col s6 m4 l3">
-
         <div class="card" id="show_photo">
           <div class="card-image waves-effect waves-block waves-light">
-            <%= cl_image_tag(photo.url, id: 'card_photo', class: 'activator')  %>
-
+            <img id="card_photo" class="activator" src="<%= photo.url %>">
           </div>
           <div class="card-reveal">
             <span id="card_title" class="card-title grey-text text-darken-4 flow-text"><%= photo.title %></span>
@@ -18,50 +16,19 @@
   <% end %>
 </div>
 
-<div id="modal-delete" class="modal">
-    <div class="modal-content">
-      <h4>Are You Sure?</h4>
-      <p>This action cannot be undone.</p>
-    </div>
-    <div class="modal-footer">
-      <a href="/users/<%= @user.id %>/delete" class=" modal-action modal-close waves-effect waves-green btn-flat">Yes</a>
-      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">No</a>
-    </div>
-  </div>
+
 
 <a id="profile_btn" class="waves-effect waves-light btn modal-trigger" href="#modal1">Profile</a>
 
 <footer>
   <div id="modal1" class="modal bottom-sheet">
-    <div class="modal-content" id="user-profile">
-    <% if current_user && current_user == @user %>
-      <h4> Hello <%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %>!</h4>
-    <% else %>
-      <h4> <%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %></h4>
-    <% end %>
+    <div class="modal-content">
+      <h4> Hello <%= @user.first_name %> <%= @user.last_name %>!</h4>
       <p><%= @user.bio %></p>
     </div>
-    <ul id="edit-user" class="hidden">
-      <div class="container">
-        <li>Edit User</li>
-        <%= render 'edit' %>
-      </div>
-    </ul>
-
-
-
-
     <div class="modal-footer">
-      <% if current_user && current_user == @user %>
-        <a href="#!" class="modal-action waves-effect waves-green btn-flat " id="edit-user-btn">Edit</a>
-        <a href="#modal-delete" class="modal-trigger waves-effect waves-green btn-flat " id="delete-user-btn">Delete</a>
-      <% end %>
-    
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Edit</a>
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Delete</a>
     </div>
   </div>
-
 </footer>
-
-
-
-
