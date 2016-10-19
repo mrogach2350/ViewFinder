@@ -53,6 +53,43 @@ User.create(
 	bio: FFaker::BaconIpsum.sentence
 	)
 
+
+	#user_id : 1
+	User.create(
+		first_name: 'Mikey',
+		last_name: 'Rogachevsky',
+		email: 'mikey@ga.com',
+		password: '1234',
+		bio: FFaker::BaconIpsum.sentence
+		)
+
+	#user_id : 2
+	User.create(
+		first_name: 'Ashley',
+		last_name: 'Vernon',
+		email: 'ashley@ga.com',
+		password: '1234',
+		bio: FFaker::BaconIpsum.sentence
+		)
+
+	#user_id : 3
+	User.create(
+		first_name: 'Wolf',
+		last_name: 'Reese',
+		email: 'wolf@ga.com',
+		password: '1234',
+		bio: FFaker::BaconIpsum.sentence
+		)
+
+	#user_id : 4
+	User.create(
+		first_name: 'Sera',
+		last_name: 'Bak',
+		email: 'sera@ga.com',
+		password: '1234',
+		bio: FFaker::BaconIpsum.sentence
+		)
+
 #landmark_id : 1
 golden_gate = Landmark.create(
 	title: 'Golden Gate Bridge',
@@ -183,4 +220,76 @@ Photo.create(
 	url: 'http://cdn.funcheap.com/wp-content/uploads/2013/10/coit-tower-2.jpg',
 	user_id: 1,
 	landmark_id: 3
+	)
+
+Photo.create(
+	title: 'Photo Title for Ferry Building',
+	caption: FFaker::DizzleIpsum.sentence,
+	url: 'http://i.imgur.com/2rVDzWa.jpg',
+	user_id: 1,
+	landmark_id: 4
+	)
+
+Photo.create(
+	title: 'Photo Title for Palace of Fine Arts',
+	caption: FFaker::DizzleIpsum.sentence,
+	url: 'http://i.imgur.com/XK0af6z.jpg',
+	user_id: 1,
+	landmark_id: 5
+	)
+
+Photo.create(
+	title: 'Photo Title for Grace Cathedral',
+	caption: FFaker::DizzleIpsum.sentence,
+	url: 'http://i.imgur.com/LqrkIMd.jpg',
+	user_id: 1,
+	landmark_id: 6
+	)
+
+Photo.create(
+	title: 'Photo Title for City Hall',
+	caption: FFaker::DizzleIpsum.sentence,
+	url: 'http://i.imgur.com/t51HqJ8.jpg',
+	user_id: 1,
+	landmark_id: 7
+	)
+
+Photo.create(
+	title: 'Photo Title for SF Museum of Modern Art',
+	caption: FFaker::DizzleIpsum.sentence,
+	url: 'http://i.imgur.com/4XabPap.jpg',
+	user_id: 1,
+	landmark_id: 8
+	)
+
+Photo.create(
+	title: 'Photo Title for Fort Mason',
+	caption: FFaker::DizzleIpsum.sentence,
+	url: 'http://cdn.funcheap.com/wp-content/uploads/2013/10/coit-tower-2.jpg',
+	user_id: 1,
+	landmark_id: 9
+	)
+
+Photo.create(
+	title: 'Photo Title for Cupid\'s Span',
+	caption: FFaker::DizzleIpsum.sentence,
+	url: 'http://i.imgur.com/p1XbePI.jpg',
+	user_id: 1,
+	landmark_id: 10
+	)
+
+Photo.create(
+	title: 'Photo Title for Vaillancourt Fountain',
+	caption: FFaker::DizzleIpsum.sentence,
+	url: 'http://i.imgur.com/6jAIBei.jpg',
+	user_id: 1,
+	landmark_id: 11
+	)
+
+Photo.create(
+	title: 'Photo Title for Lombard Street',
+	caption: FFaker::DizzleIpsum.sentence,
+	url: 'http://i.imgur.com/6plIZoX.jpg',
+	user_id: 1,
+	landmark_id: 12
 	)
