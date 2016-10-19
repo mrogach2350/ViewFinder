@@ -33,6 +33,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'ffaker'
 gem 'carrierwave'
 gem 'cloudinary'
+gem 'social-share-button'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

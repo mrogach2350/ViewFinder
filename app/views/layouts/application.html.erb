@@ -9,15 +9,19 @@
     <link href='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.css' rel='stylesheet' />
     <script src='https://api.mapbox.com/mapbox-gl-js/v0.26.0/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v0.26.0/mapbox-gl.css' rel='stylesheet' />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
 
   <body>
+
     <%= cloudinary_js_config %>
+
     <nav>
       <div class="nav-wrapper grey-text text-lighten-4">
         <a href="/" id="logo"class="brand-logo col s5 offset-s1">ViewFinder</a>
         <ul id="nav-mobile" class="right">
+
           <li><a href="/landmarks">Map</a></li>
           <% if current_user %>
             <li><a href="<%=user_path(current_user)%>">Profile</a></li>
@@ -95,20 +99,20 @@
           <!-- <a href="https://creativecommons.org/licenses/">Learn More</a> -->
 
           <%= form_tag(uploads_path, :method => :post) do |f| %>
-            <%= cl_image_upload_tag(:image_file) %>
+            <%= cl_image_upload_tag(:image_file, :class => "wolf") %>
           <%= submit_tag "Submit" %>
           <% end %>
       </div>
     </ul>
 
-
-
-<% flash.each do |name, msg| %>
-  <p>
-    <small> <%= name.capitalize %>: <%= msg %> </small>
-  </p>
-<% end %>
-
+    <div id="flash">
+      <% flash.each do |name, msg| %>
+        <p>
+          <small> <%= name.capitalize %>: <%= msg %> </small>
+        </p>
+      <% end %>
+    </div>
+    
     <%= yield %>
 
     <footer id="footer" class="page-footer">

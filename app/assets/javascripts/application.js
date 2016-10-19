@@ -17,6 +17,7 @@
 //= require turbolinks
 //= require app
 //= require materialize-sprockets
+//= require social-share-button
 //= require_tree .
 
 $(document).on('turbolinks:load', function(){
@@ -28,10 +29,29 @@ $(document).on('turbolinks:load', function(){
   $('.materialboxed').materialbox();
   $('.modal-trigger').leanModal();
   $('.carousel.carousel-slider').carousel({full_width: true});
+
+
+  $('#edit-user-btn').on('click', function (e) {
+  	e.preventDefault();
+  	$(this).offsetParent().find('.hidden').removeClass('hidden');
+  	$(this).offsetParent().find('#user-profile').addClass('hidden');
+
+	// $('#save-user-btn').on('click', function (e) {
+	//   	e.preventDefault();
+	//   	console.log('hi!')
+	//   	$(this).closest('#user-profile').removeClass('hidden');
+	//   	$(this).closest('#edit-user').addClass('hidden');
+ //  	});
+
+  });
+
   console.log('runnin runnnnning');
   $(function() {
         if($.fn.cloudinary_fileupload !== undefined) {
           $("input.cloudinary-fileupload[type=file]").cloudinary_fileupload({replaceFileInput: false});
+          $("input.cloudinary-fileupload[type=file]").attr("accept", "image/*");
+          $("input.cloudinary-fileupload[type=file]").attr("capture", "camera");
         }
   });
+
 });
