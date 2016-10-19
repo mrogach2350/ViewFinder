@@ -21,6 +21,7 @@
       <div class="nav-wrapper grey-text text-lighten-4">
         <a href="/" id="logo"class="brand-logo col s5 offset-s1">ViewFinder</a>
         <ul id="nav-mobile" class="right">
+
           <li><a href="/landmarks">Map</a></li>
           <% if current_user %>
             <li><a href="<%=user_path(current_user)%>">Profile</a></li>
@@ -104,14 +105,14 @@
       </div>
     </ul>
 
-
-
-<% flash.each do |name, msg| %>
-  <p>
-    <small> <%= name.capitalize %>: <%= msg %> </small>
-  </p>
-<% end %>
-
+    <div id="flash">
+      <% flash.each do |name, msg| %>
+        <p>
+          <small> <%= name.capitalize %>: <%= msg %> </small>
+        </p>
+      <% end %>
+    </div>
+    
     <%= yield %>
 
     <footer id="footer" class="page-footer">
