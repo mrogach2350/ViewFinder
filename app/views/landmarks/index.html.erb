@@ -7,7 +7,7 @@
       </div>
       <% @landmarks.each do |lm, i| %>
       <div class="col s12">
-        <div class="card hoverable landmark-list-card" data-lat="<%=lm.lat%>" data-lng="<%=lm.long%>">
+        <div class="card hoverable landmark-list-card" data-id="<%=lm.id%>" data-lat="<%=lm.lat%>" data-lng="<%=lm.long%>">
           <div class="card-image">
             <img class="responsive-img" src="<%= lm.url %>">
             <span class="card-title"><%= lm.title %></span>
@@ -61,38 +61,71 @@ $(document).on('turbolinks:load', function() {
                   "coordinates": [<%= @landmark.lat %>, <%= @landmark.long %>]
               },
               "properties": {
-                  "title": "<%= @landmark.title %>",
-                  "icon": "monument"
+                  "message": "<%= @landmark.title %>",
+                  "iconSize": [30,30],
+                  "url": "<%= @landmark.url %>"
               }
           });
     <% end %>
 
-    map.addSource("points", {
-      "type": "geojson",
-      "data": {
-        "type" : "FeatureCollection",
-        "features": markers
-      }
+    var geojson = {
+      "type": "FeatureCollection",
+      "features": markers
+    }
+
+
+
+
+
+    geojson.features.forEach(function(marker, i) {
+      var el = document.createElement('div');
+      el.className = 'marker';
+      el.id = 'marker' + (i+1);
+      el.style.backgroundImage = 'url(' + marker.properties.url +')';
+    //  el.style.backgroundColor = "purple";
+      el.style.backgroundSize = "cover";
+      el.style.borderRadius = "90%";
+      el.style.width = marker.properties.iconSize[0] + 'px';
+      el.style.height = marker.properties.iconSize[1] + 'px';
+
+      el.addEventListener('click', function() {
+          window.alert(marker.properties.message);
+      });
+
+      new mapboxgl.Marker(el, {offset: [-marker.properties.iconSize[0] / 2, -marker.properties.iconSize[1] / 2]}).setLngLat(marker.geometry.coordinates).addTo(map);
     });
 
-    map.addLayer({
-       "id": "points",
-       "type": "symbol",
-       "source": "points",
-       "layout": {
-           "icon-image": "{icon}-15",
-           "text-field": "{title}",
-           "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
-           "text-offset": [0, 0.6],
-           "text-anchor": "top"
-       }
-   });
+  //   map.addSource("points", {
+  //     "type": "geojson",
+  //     "data": {
+  //       "type" : "FeatureCollection",
+  //       "features": markers
+  //     }
+  //   });
+   //
+  //   map.addLayer({
+  //      "id": "points",
+  //      "type": "symbol",
+  //      "source": "points",
+  //      "layout": {
+  //          "icon-image": "{icon}-15"
+  //      }
+  //  });
 
 
   });
 
 
   $('#map-reset').click(function() {
+
+    $('.marker').each(function(i, marker) {
+      if($(marker).height() > 200) {
+        $(marker).animate({
+          height: "-=300",
+          width: "-=300"
+        }, 1000);
+      }
+    });
     map.flyTo({
       zoom: 11.5,
       pitch: -180,
@@ -101,6 +134,11 @@ $(document).on('turbolinks:load', function() {
   });
 
   $('.landmark-list-card').click(function() {
+    var id = $(this).data("id");
+    $('#marker' + id).animate({
+      height: "+=300",
+      width: "+=300",
+    }, 1000);
     var lat = $(this).attr('data-lat');
     var lng = $(this).attr('data-lng');
 
