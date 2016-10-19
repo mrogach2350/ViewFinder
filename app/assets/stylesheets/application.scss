@@ -1,24 +1,25 @@
 //=require landmarks
+//= require social-share-button
 //=require_tree .
 @import "materialize";
 small {
   text-align: center;
 }
 .nav-wrapper, #footer{
-  background-color: #512DA8;
+  background-color: #311b65;
 }
 #logo {
   margin-left: 15px;
 }
-
+#carousel_title {
+  background-color: transparent;
+}
 .carousel{
   margin: 15px;
   border: 10px solid black;
   width: 60vw;
 }
-.carousel-item {
-  background-color: #512DA8;
-}
+
 
 #show_photo {
   display: block;
@@ -36,6 +37,7 @@ small {
   position: fixed;
   width: 100%;
   bottom: 0px;
+  z-index: 1000;
 }
 .ftr {
   display: flex;
@@ -47,4 +49,25 @@ small {
 #profile_btn {
   position: fixed;
   bottom: 0;
+  z-index: 1200;
+}
+#photo_display{
+  margin-bottom: 10vh;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+}
+#card_title {
+  font-size: 1.3vw;
+}
+#card_photo {
+  display: block;
+  max-height: 200px;
+  width: 100%;
+  height: auto;
+}
+.social-share-button {
+  margin: 15px 0;
+  display: flex;
+  flex-direction: column;
 }

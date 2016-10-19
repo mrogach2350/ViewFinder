@@ -17,6 +17,7 @@
 //= require turbolinks
 //= require app
 //= require materialize-sprockets
+//= require social-share-button
 //= require_tree .
 
 $(document).on('turbolinks:load', function(){
