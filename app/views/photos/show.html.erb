@@ -6,7 +6,7 @@
     <%= social_share_button_tag(@photo.url) %>
   </div>
   <div class="col s6">
-    <%= cl_image_tag(@photo.url, id: 'show_photo', class: 'materialboxed' ) %>
+    <%= cl_image_tag(@photo.url, id: 'show_photo', class: 'materialboxed', :width=> "200", :height=> "200" ) %>
  
   </div>
 </div>
