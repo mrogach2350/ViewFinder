@@ -1,0 +1,6 @@
+<%= form_for @user, :url => {:action => "update"}, :method => "patch" do |f| %>
+  <li><%= f.text_field :first_name, placeholder: 'First name' %></li>
+  <li><%= f.text_field :last_name, placeholder: 'Last name' %></li>
+  <li><%= f.text_area :bio, placeholder: 'Bio' %></li>
+  <li><%= f.submit 'Save', id: 'save-user-btn'  %></li>
+<% end %>

@@ -16,6 +16,7 @@ class UsersController < ApplicationController
 		end
 	end
 
+
 	def show
 		@user = User.find_by_id(params[:id])
 	end
@@ -27,17 +28,20 @@ class UsersController < ApplicationController
 	def update
 		@user = User.find_by_id(params[:id])
 		@user.update_attributes(user_params)
-		redirect_to @user
+		p @user.errors.full_messages
+		render 'show'
 	end
 
 	def destroy
 		@user = User.find_by_id(params[:id])
 		@user.destroy
+		flash[:success] = "User successfully deleted."
 		redirect_to photos_path
 	end
 
 	private
 		def user_params
-			params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
+			params.require(:user).permit(:first_name, :last_name, :bio, :email, :password)
 		end
+
 end
