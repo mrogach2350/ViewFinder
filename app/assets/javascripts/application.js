@@ -26,6 +26,7 @@ $(document).on('turbolinks:load', function(){
       edge: 'right', // Choose the horizontal origin
       closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
     });
+  $('.button-collapse').sideNav();
   $('.materialboxed').materialbox();
   $('.modal-trigger').leanModal();
   $('.carousel.carousel-slider').carousel({full_width: true});
