@@ -43,15 +43,52 @@ $(document).on('turbolinks:load', function() {
       center: sfCoords
     });
 
+    // <% for @landmark in @landmarks %>
+    //   //TODO: find a way to make markers visible (geoJSON)
+    //    var marker = new mapboxgl.Marker().setLngLat([<%= @landmark.lat %>, <%= @landmark.long %>]);
+    //    //$(marker).css('background-color', 'red' );
+    //    var popup = new mapboxgl.Popup({offset:[0, -30]})
+    //   .setText('Construction on the Washington Monument began in 1848.');
+    //    marker.setPopup(popup);
+    //    marker.addTo(this);
+    // <% end %>
+    var markers = [];
     <% for @landmark in @landmarks %>
-      //TODO: find a way to make markers visible (geoJSON)
-       var marker = new mapboxgl.Marker().setLngLat([<%= @landmark.lat %>, <%= @landmark.long %>]);
-       //$(marker).css('background-color', 'red' );
-       var popup = new mapboxgl.Popup({offset:[0, -30]})
-      .setText('Construction on the Washington Monument began in 1848.');
-       marker.setPopup(popup);
-       marker.addTo(this);
+            markers.push({
+              "type": "Feature",
+              "geometry": {
+                  "type": "Point",
+                  "coordinates": [<%= @landmark.lat %>, <%= @landmark.long %>]
+              },
+              "properties": {
+                  "title": "<%= @landmark.title %>",
+                  "icon": "monument"
+              }
+          });
     <% end %>
+
+    map.addSource("points", {
+      "type": "geojson",
+      "data": {
+        "type" : "FeatureCollection",
+        "features": markers
+      }
+    });
+
+    map.addLayer({
+       "id": "points",
+       "type": "symbol",
+       "source": "points",
+       "layout": {
+           "icon-image": "{icon}-15",
+           "text-field": "{title}",
+           "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
+           "text-offset": [0, 0.6],
+           "text-anchor": "top"
+       }
+   });
+
+
   });
 
 
