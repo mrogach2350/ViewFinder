@@ -1,1 +1,17 @@
 <h1><%= @landmark.title %></h1>
+<div id="photo_display" class="row">
+  <%  @landmark.photos.each do |photo| %>
+      <div class="col s6 m4 l3">
+        <div class="card" id="show_photo">
+          <div class="card-image waves-effect waves-block waves-light">
+            <img id="card_photo" class="activator" src="<%= photo.url %>">
+          </div>
+          <div class="card-reveal">
+            <span id="card_title" class="card-title grey-text text-darken-4 flow-text"><%= photo.title %></span>
+            <p><%= photo.caption %></p>
+            <a href="/landmarks/<%=photo.landmark_id%>/photos/<%=photo.id%>">Learn More</a>
+          </div>
+        </div>
+      </div>
+  <% end %>
+</div>
