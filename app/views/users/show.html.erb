@@ -16,19 +16,50 @@
   <% end %>
 </div>
 
-
+<div id="modal-delete" class="modal">
+    <div class="modal-content">
+      <h4>Are You Sure?</h4>
+      <p>This action cannot be undone.</p>
+    </div>
+    <div class="modal-footer">
+      <a href="/users/<%= current_user.id %>/delete" class=" modal-action modal-close waves-effect waves-green btn-flat">Yes</a>
+      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">No</a>
+    </div>
+  </div>
 
 <a id="profile_btn" class="waves-effect waves-light btn modal-trigger" href="#modal1">Profile</a>
 
 <footer>
   <div id="modal1" class="modal bottom-sheet">
-    <div class="modal-content">
-      <h4> Hello <%= @user.first_name %> <%= @user.last_name %>!</h4>
+    <div class="modal-content" id="user-profile">
+    <% if current_user && current_user == @user %>
+      <h4> Hello <%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %>!</h4>
+    <% else %>
+      <h4> <%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %></h4>
+    <% end %>
       <p><%= @user.bio %></p>
     </div>
+    <ul id="edit-user" class="hidden">
+      <div class="container">
+        <li>Edit User</li>
+        <%= render 'edit' %>
+      </div>
+    </ul>
+
+
+
+
     <div class="modal-footer">
-      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Edit</a>
-      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Delete</a>
+      <% if current_user && current_user == @user %>
+        <a href="#!" class="modal-action waves-effect waves-green btn-flat " id="edit-user-btn">Edit</a>
+        <a href="#modal-delete" class="modal-trigger waves-effect waves-green btn-flat " id="delete-user-btn">Delete</a>
+      <% end %>
+    
     </div>
   </div>
+
 </footer>
+
+
+
+
