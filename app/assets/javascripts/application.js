@@ -32,6 +32,8 @@ $(document).on('turbolinks:load', function(){
   $(function() {
         if($.fn.cloudinary_fileupload !== undefined) {
           $("input.cloudinary-fileupload[type=file]").cloudinary_fileupload();
+          $("input.cloudinary-fileupload[type=file]").attr("accept", "image/*");
+          $("input.cloudinary-fileupload[type=file]").attr("capture", "camera");
         }
   });
 });

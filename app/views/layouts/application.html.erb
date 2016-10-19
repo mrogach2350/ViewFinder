@@ -95,7 +95,7 @@
           <!-- <a href="https://creativecommons.org/licenses/">Learn More</a> -->
 
           <%= form_tag(uploads_path, :method => :post) do |f| %>
-            <%= cl_image_upload_tag(:image_file) %>
+            <%= cl_image_upload_tag(:image_file, :class => "wolf") %>
           <%= submit_tag "Submit" %>
           <% end %>
       </div>
