@@ -6,6 +6,7 @@
     <%= cl_image_tag(@photo.url, id: 'show_photo', class: 'materialboxed' ) %>
   </div>
 </div>
+
 <div id="photo-show-btns" class="row">
   <div class="col s12">
     <div class="col s6">
@@ -18,4 +19,27 @@
       <%= social_share_button_tag(@photo.url) %>
     </div>
   </div>
+</div>
+
+<div class="comments-header">
+  <h4>
+    <%= @photo.comment_threads.count == 0 ? "no" : @photo.comment_threads.count %> comments
+  </h4>
+	<% if current_user %>
+		<%= form_for @new_comment do |f| %>
+  		<%= f.hidden_field :commentable_id, value: @new_comment.commentable_id %>
+  		<%= f.hidden_field :commentable_type, value: @new_comment.commentable_type %>
+    	<%= f.text_area :body%>
+    	<%= submit_tag "Post comment", class: 'btn btn-primary' %>
+		<% end %>
+	<% end %>
+</div>
+
+<div class="comments-container">
+	<% @comments = @photo.comment_threads %>
+  <% @comments.each do |comment| %>
+      <p><%= comment.body %><br></p>
+      <p><%= comment.user.first_name %><br></p>
+      <hr>
+	<% end %>
 </div>
