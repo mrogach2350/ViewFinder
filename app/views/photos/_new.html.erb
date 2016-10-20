@@ -1,0 +1,22 @@
+<div id="modal-upload-form" class="modal">
+  <div class="modal-content">
+    <h4>Upload a Photo</h4>
+
+
+    <%= form_for [@landmark, @photo] do |f| %>
+
+    <%= f.label "Title"  %>
+    <%= f.text_field :title, placeholder: "Photo Title", required: true %> <br>
+
+    <%= f.label "Caption"  %>
+    <%= f.text_area :caption, placeholder: "Tell Us About Your Photo", required: true %> <br>
+
+    <%= cl_image_upload_tag(:url) %>
+
+  </div>
+  <div class="modal-footer">
+    <div class=" modal-action waves-effect waves-green btn-flat"><%= f.submit "Save"%></div>
+    <% end %>
+    <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
+  </div>
+</div>

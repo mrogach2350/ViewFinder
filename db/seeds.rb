@@ -199,7 +199,7 @@ lombard_street = Landmark.create(
 	)
 
 Photo.create(
-	title: 'Photo Title for GG Bridge',
+	title: 'Golden Gate Bridge',
 	caption: FFaker::DizzleIpsum.sentence,
 	url: 'http://images.mentalfloss.com/sites/default/files/styles/article_640x430/public/istock_000001168352_small.jpg',
 	user_id: 1,
@@ -207,7 +207,7 @@ Photo.create(
 	)
 
 Photo.create(
-	title: 'Photo Title for Bay Bridge',
+	title: 'Bay Bridge',
 	caption: FFaker::DizzleIpsum.sentence,
 	url: 'http://www.dot.ca.gov/hq/esc/tollbridge/SFOBB/jpgs/SFOBBnight.jpg',
 	user_id: 1,
@@ -215,7 +215,7 @@ Photo.create(
 	)
 
 Photo.create(
-	title: 'Photo Title for Coit Tower',
+	title: 'Coit Tower',
 	caption: FFaker::DizzleIpsum.sentence,
 	url: 'http://cdn.funcheap.com/wp-content/uploads/2013/10/coit-tower-2.jpg',
 	user_id: 1,
@@ -223,7 +223,7 @@ Photo.create(
 	)
 
 Photo.create(
-	title: 'Photo Title for Ferry Building',
+	title: 'Ferry Building',
 	caption: FFaker::DizzleIpsum.sentence,
 	url: 'http://i.imgur.com/2rVDzWa.jpg',
 	user_id: 1,
@@ -231,7 +231,7 @@ Photo.create(
 	)
 
 Photo.create(
-	title: 'Photo Title for Palace of Fine Arts',
+	title: 'Palace of Fine Arts',
 	caption: FFaker::DizzleIpsum.sentence,
 	url: 'http://i.imgur.com/XK0af6z.jpg',
 	user_id: 1,
@@ -239,57 +239,57 @@ Photo.create(
 	)
 
 Photo.create(
-	title: 'Photo Title for Grace Cathedral',
+	title: 'Grace Cathedral',
 	caption: FFaker::DizzleIpsum.sentence,
 	url: 'http://i.imgur.com/LqrkIMd.jpg',
-	user_id: 1,
+	user_id: 2,
 	landmark_id: 6
 	)
 
 Photo.create(
-	title: 'Photo Title for City Hall',
+	title: 'City Hall',
 	caption: FFaker::DizzleIpsum.sentence,
 	url: 'http://i.imgur.com/t51HqJ8.jpg',
-	user_id: 1,
+	user_id: 2,
 	landmark_id: 7
 	)
 
 Photo.create(
-	title: 'Photo Title for SF Museum of Modern Art',
+	title: 'SF Museum of Modern Art',
 	caption: FFaker::DizzleIpsum.sentence,
 	url: 'http://i.imgur.com/4XabPap.jpg',
-	user_id: 1,
+	user_id: 2,
 	landmark_id: 8
 	)
 
 Photo.create(
-	title: 'Photo Title for Fort Mason',
+	title: 'Fort Mason',
 	caption: FFaker::DizzleIpsum.sentence,
 	url: 'http://cdn.funcheap.com/wp-content/uploads/2013/10/coit-tower-2.jpg',
-	user_id: 1,
+	user_id: 2,
 	landmark_id: 9
 	)
 
 Photo.create(
-	title: 'Photo Title for Cupid\'s Span',
+	title: 'Cupid\'s Span',
 	caption: FFaker::DizzleIpsum.sentence,
 	url: 'http://i.imgur.com/p1XbePI.jpg',
-	user_id: 1,
+	user_id: 2,
 	landmark_id: 10
 	)
 
 Photo.create(
-	title: 'Photo Title for Vaillancourt Fountain',
+	title: 'Vaillancourt Fountain',
 	caption: FFaker::DizzleIpsum.sentence,
 	url: 'http://i.imgur.com/6jAIBei.jpg',
-	user_id: 1,
+	user_id: 2,
 	landmark_id: 11
 	)
 
 Photo.create(
-	title: 'Photo Title for Lombard Street',
+	title: 'Lombard Street',
 	caption: FFaker::DizzleIpsum.sentence,
 	url: 'http://i.imgur.com/6plIZoX.jpg',
-	user_id: 1,
+	user_id: 2,
 	landmark_id: 12
 	)
