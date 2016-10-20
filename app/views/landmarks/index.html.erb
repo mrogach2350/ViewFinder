@@ -16,7 +16,6 @@
             <div class="card-action">
               <a class="blueify" href="/landmarks/<%= lm.id %>">Landmark page</a>
             </div>
-          </div>
         </div>
     <% end %>
     </div>
@@ -151,7 +150,7 @@ $(document).on('turbolinks:load', function() {
 
 
     enlargeMarker($('#marker' + id));
-    
+
     map.flyTo({
       zoom: 20,
       center: new mapboxgl.LngLat(lat, lng),

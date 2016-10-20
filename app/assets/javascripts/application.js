@@ -26,10 +26,14 @@ $(document).on('turbolinks:load', function(){
       edge: 'right', // Choose the horizontal origin
       closeOnClick: true
     });
+  $('.button-collapse').sideNav();
   $('.materialboxed').materialbox();
   $('.modal-trigger').leanModal();
   $('.carousel.carousel-slider').carousel({full_width: true});
-
+  
+  setTimeout(function(){
+    $('#flash').remove();
+  }, 5000);
 
   $('#edit-user-btn').on('click', function (e) {
   	e.preventDefault();

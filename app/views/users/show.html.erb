@@ -1,35 +1,70 @@
-
 <div id="photo_display" class="row">
-  <% Photo.all.each do |photo| %>
-      <div class="col s6 m4 l3">
+  <% if @user.photos.count > 0 %>
+    <% @user.photos.each do |photo|%>
+    <div class="col s6 m4 l3">
 
-        <div class="card" id="show_photo">
-          <div class="card-image waves-effect waves-block waves-light">
-            <%= cl_image_tag(photo.url, id: 'card_photo', class: 'activator')  %>
+      <div class="card" id="show_photo">
+        <div class="card-image waves-effect waves-block waves-light">
+          <%= cl_image_tag(photo.url, id: 'card_photo', class: 'activator')  %>
 
-          </div>
-          <div class="card-reveal">
-            <span id="card_title" class="card-title grey-text text-darken-4 flow-text"><%= photo.title %></span>
-            <p><%= photo.caption %></p>
-            <a href="/landmarks/<%=photo.landmark_id%>/photos/<%=photo.id%>">Learn More</a>
-          </div>
+        </div>
+        <div class="card-reveal">
+          <span id="card_title" class="card-title grey-text text-darken-4 flow-text"><%= photo.title %></span>
+          <p><%= photo.caption %></p>
+          <a href="/landmarks/<%=photo.landmark_id%>/photos/<%=photo.id%>">Learn More</a>
         </div>
       </div>
+    </div>
+    <% end %>
+  <% else %>
+    <div class="col s12">
+      <ul class="collapsible popout" data-collapsible="accordion">
+        <li>
+          <div class="collapsible-header"><i class="material-icons">filter_drama</i>Thank you for joining the ViewFinder Community!</div>
+          <div class="collapsible-body">
+            <p>
+              Welcome to ViewFinder, a vibrant community here to inspire and challenge photographers across San Francisco.  <br>
+              This is your <a href="#modal1" class="modal-trigger"><strong>Profile Page</strong></a> . Currently, We've filled your wall with creations from all over our community. <br>
+              Use them as a tool to get comfortable with this wonderful tool and as inspiration for your first ViewFinder adventure. <br>
+              Once you've uploaded your first photo, we'll get rid of these images and display your handiwork. Please be sure to checkout our <a href="/rules"><strong>Community Guidlines!</strong></a> <br>
+              Now get out there and snap some memories!
+              <a href="/about"><h5 class="signature right">The ViewFinder Team</h5></a>
+            </p>
+
+          </div>
+        </li>
+      </ul>
+    </div>
+    <% Photo.all.each do |photo|%>
+    <div class="col s6 m4 l3">
+      <div class="card" id="show_photo">
+        <div class="card-image waves-effect waves-block waves-light">
+          <%= cl_image_tag(photo.url, id: 'card_photo', class: 'activator')  %>
+
+        </div>
+        <div class="card-reveal">
+          <span id="card_title" class="card-title grey-text text-darken-4 flow-text"><%= photo.title %></span>
+          <p><%= photo.caption %></p>
+          <a href="/landmarks/<%=photo.landmark_id%>/photos/<%=photo.id%>">Learn More</a>
+        </div>
+      </div>
+    </div>
+    <% end %>
   <% end %>
 </div>
 
 <div id="modal-delete" class="modal">
-    <div class="modal-content">
-      <h4>Are You Sure?</h4>
-      <p>This action cannot be undone.</p>
-    </div>
-    <div class="modal-footer">
-      <a href="/users/<%= @user.id %>/delete" class=" modal-action modal-close waves-effect waves-green btn-flat">Yes</a>
-      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">No</a>
-    </div>
+  <div class="modal-content">
+    <h4>Are You Sure?</h4>
+    <p>This action cannot be undone.</p>
   </div>
+  <div class="modal-footer">
+    <a href="/users/<%= @user.id %>/delete" class=" modal-action modal-close waves-effect waves-green btn-flat">Yes</a>
+    <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">No</a>
+  </div>
+</div>
 
-<a id="profile_btn" class="waves-effect waves-light btn modal-trigger" href="#modal1">Profile</a>
+<a id="profile_btn" class="waves-effect waves-light btn modal-trigger" href="#modal1"><%= @user.first_name.first %>. <%= @user.last_name.capitalize %></a>
 
 <footer>
   <div id="modal1" class="modal bottom-sheet">
@@ -56,12 +91,8 @@
         <a href="#!" class="modal-action waves-effect waves-green btn-flat " id="edit-user-btn">Edit</a>
         <a href="#modal-delete" class="modal-trigger waves-effect waves-green btn-flat " id="delete-user-btn">Delete</a>
       <% end %>
-    
+
     </div>
   </div>
 
 </footer>
-
-
-
-
