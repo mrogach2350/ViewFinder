@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 	resources :landmarks, only: [:index, :show, :delete] do
 		resources :photos, except: [:edit] do
 			member { post :vote }
+		end
 	end
 
 

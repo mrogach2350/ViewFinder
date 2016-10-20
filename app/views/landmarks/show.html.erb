@@ -12,8 +12,8 @@
             <span id="card_title" class="card-title grey-text text-darken-4 flow-text"><%= photo.title %></span>
             <p><%= photo.caption %></p>
             <a href="/landmarks/<%=photo.landmark_id%>/photos/<%=photo.id%>">Learn More</a>
-				<%= link_to "up", vote_photo_path(photo, type: "up"), method: "post" %>
-				<%= link_to "down", vote_photo_path(photo, type: "down"), method: "post" %> 
+				<%= link_to "up", vote_landmark_photo_path(photo, type: "up"), method: "post" %>
+				<%= link_to "down", vote_landmark_photo_path(photo, type: "down"), method: "post" %> 
             
           </div>
         </div>

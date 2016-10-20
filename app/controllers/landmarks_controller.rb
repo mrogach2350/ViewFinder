@@ -6,7 +6,6 @@ class LandmarksController < ApplicationController
 
 	def show
 		@photo = Photo.new(params[:image])
-		debugger
 		# todo - :id needs to change to :landmark_id at some point
 		@landmark = Landmark.find_by_id(params[:id])
 	end

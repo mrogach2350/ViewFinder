@@ -52,11 +52,9 @@ class PhotosController < ApplicationController
 
   def vote 
     value = params[:type] == "up" ? 1 : -1
-    @landmark = Landmark.find_by(id: @photo.landmark_id)
-    @landmark.photos.each do |photo|
-      photo.add_evaluation(:votes, value, current_user)
-    end
-
+    # @landmark = Landmark.find_by(id: @photo.landmark_id)
+    @photo = Photo.find_by_id(params[:id])
+    @photo.add_or_update_evaluation(:votes, value, current_user)
     redirect_to :back, notice: "Thank you for voting!"
   end
 
