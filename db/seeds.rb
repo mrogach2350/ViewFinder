@@ -27,9 +27,6 @@ User.create(
 	bio: FFaker::BaconIpsum.sentence
 	)
 
-<<<<<<< HEAD
-Landmark.create(landmarks)
-=======
 #user_id : 2
 User.create(
 	first_name: 'Ashley',
@@ -201,7 +198,6 @@ lombard_street = Landmark.create(
 	long: 37.8021,
 	url: 'http://imgur.com/6plIZoX.jpg'
 	)
->>>>>>> 40bcf42f7836a0330a2145c67dc4cd0633e5397c
 
 Photo.create(
 	title: 'Golden Gate Bridge',
@@ -210,8 +206,6 @@ Photo.create(
 	user_id: 1,
 	landmark_id: 1
 	)
-<<<<<<< HEAD
-=======
 
 Photo.create(
 	title: 'Bay Bridge',
@@ -300,4 +294,3 @@ Photo.create(
 	user_id: 2,
 	landmark_id: 12
 	)
->>>>>>> 40bcf42f7836a0330a2145c67dc4cd0633e5397c
