@@ -22,7 +22,7 @@
 
 $(document).on('turbolinks:load', function(){
   $('.side_btn').sideNav({
-      menuWidth: 300, 
+      menuWidth: 300,
       edge: 'right', // Choose the horizontal origin
       closeOnClick: true
     });
@@ -30,7 +30,7 @@ $(document).on('turbolinks:load', function(){
   $('.materialboxed').materialbox();
   $('.modal-trigger').leanModal();
   $('.carousel.carousel-slider').carousel({full_width: true});
-  
+
   setTimeout(function(){
     $('#flash').remove();
   }, 5000);
@@ -48,5 +48,5 @@ $(document).on('turbolinks:load', function(){
           $("input.cloudinary-fileupload[type=file]").attr("capture", "camera");
         }
   });
-
+ });
 });
