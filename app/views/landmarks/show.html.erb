@@ -2,8 +2,9 @@
 <div>
 	<em>
 		<%= @landmark.title %>
-		<%= link_to "up", vote_landmark_path(landmark, type: "up"), method: "post" %>
-		<%= link_to "down", vote_landmark_path(landmark, type: "down"), method: "post" %>
+
+		<%= link_to "up", vote_landmark_path(@landmark.id, type: "up"), method: "post" %>
+		<%= link_to "down", vote_landmark_path(@landmark.id, type: "down"), method: "post" %> 
 	</em>
 </div>
 
