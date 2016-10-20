@@ -1,1 +1,8 @@
-<h1><%= @landmark.title %></h1>
+<div>
+	<em>
+		<%= @landmark.title %>
+		<%= link_to "up", vote_landmark_path(landmark, type: "up"), method: "post" %>
+		<%= link_to "down", vote_landmark_path(landmark, type: "down"), method: "post" %>
+	</em>
+</div>
+
