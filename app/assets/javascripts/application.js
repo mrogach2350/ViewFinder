@@ -27,6 +27,7 @@ $(document).on('turbolinks:load', function(){
       closeOnClick: true
     });
   $('.button-collapse').sideNav();
+  $('.collapsible').collapsible();
   $('.materialboxed').materialbox();
   $('.modal-trigger').leanModal();
   $('.carousel.carousel-slider').carousel({full_width: true});
