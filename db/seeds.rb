@@ -169,7 +169,7 @@ fort_mason = Landmark.create(
 	description: FFaker::DizzleIpsum.sentence,
 	lat: -122.4321,
 	long: 37.8064,
-	url: 'http://imgur.com/ZZ119aC.jpg'
+	url: 'http://imgur.com/HbwqhPF.jpg'
 	)
 
 #landmark_id : 10
@@ -198,6 +198,43 @@ lombard_street = Landmark.create(
 	long: 37.8021,
 	url: 'http://imgur.com/6plIZoX.jpg'
 	)
+#landmark_id : 13
+#landmark_id : 14
+golden_gate = Landmark.create(
+	title: 'Golden Gate Bridge',
+	description: FFaker::DizzleIpsum.sentence,
+	lat: -122.4783,
+	long: 37.8199,
+	url: 'http://imgur.com/EmRtDhm.jpg'
+	)
+
+
+#landmark_id : 15
+
+#landmark_id : 3
+
+#landmark_id : 4
+
+#landmark_id : 5
+
+#landmark_id : 6
+
+
+#landmark_id : 7
+
+
+#landmark_id : 8
+
+#landmark_id : 9
+
+
+#landmark_id : 10
+
+
+#landmark_id : 11
+
+
+#landmark_id : 12
 
 Photo.create(
 	title: 'Golden Gate Bridge',
@@ -206,7 +243,41 @@ Photo.create(
 	user_id: 1,
 	landmark_id: 1
 	)
-
+Photo.create(
+	title: 'Golden Gate Bridge',
+	caption: FFaker::DizzleIpsum.sentence,
+	url: 'http://imgur.com/g4l4lHk.jpg',
+	user_id: 1,
+	landmark_id: 1
+	)
+Photo.create(
+	title: 'Golden Gate Bridge',
+	caption: FFaker::DizzleIpsum.sentence,
+	url: 'http://imgur.com/RDkHY5g.jpg',
+	user_id: 1,
+	landmark_id: 1
+	)
+Photo.create(
+	title: 'Golden Gate Bridge',
+	caption: FFaker::DizzleIpsum.sentence,
+	url: 'http://imgur.com/5qMMZjr.jpg',
+	user_id: 1,
+	landmark_id: 1
+	)
+Photo.create(
+	title: 'Bay Bridge',
+	caption: FFaker::DizzleIpsum.sentence,
+	url: 'http://imgur.com/ZGQ7iz3.jpg',
+	user_id: 1,
+	landmark_id: 2
+	)
+Photo.create(
+	title: 'Bay Bridge',
+	caption: FFaker::DizzleIpsum.sentence,
+	url: 'http://imgur.com/RpiidVZ.jpg',
+	user_id: 1,
+	landmark_id: 2
+	)
 Photo.create(
 	title: 'Bay Bridge',
 	caption: FFaker::DizzleIpsum.sentence,
@@ -214,7 +285,13 @@ Photo.create(
 	user_id: 1,
 	landmark_id: 2
 	)
-
+Photo.create(
+	title: 'Bay Bridge',
+	caption: FFaker::DizzleIpsum.sentence,
+	url: 'http://imgur.com/UiLTaiE.jpg',
+	user_id: 1,
+	landmark_id: 2
+	)
 Photo.create(
 	title: 'Coit Tower',
 	caption: FFaker::DizzleIpsum.sentence,
@@ -222,7 +299,20 @@ Photo.create(
 	user_id: 1,
 	landmark_id: 3
 	)
-
+Photo.create(
+	title: 'Coit Tower',
+	caption: FFaker::DizzleIpsum.sentence,
+	url: 'http://imgur.com/gxwNd6V.jpg',
+	user_id: 1,
+	landmark_id: 3
+	)
+Photo.create(
+	title: 'Coit Tower',
+	caption: FFaker::DizzleIpsum.sentence,
+	url: 'http://imgur.com/0BvPPjT.jpg',
+	user_id: 1,
+	landmark_id: 3
+	)
 Photo.create(
 	title: 'Ferry Building',
 	caption: FFaker::DizzleIpsum.sentence,
@@ -230,7 +320,20 @@ Photo.create(
 	user_id: 1,
 	landmark_id: 4
 	)
-
+Photo.create(
+	title: 'Ferry Building',
+	caption: FFaker::DizzleIpsum.sentence,
+	url: 'http://imgur.com/gE0PGbq.jpg',
+	user_id: 1,
+	landmark_id: 4
+	)
+Photo.create(
+	title: 'Ferry Building',
+	caption: FFaker::DizzleIpsum.sentence,
+	url: 'http://imgur.com/IfTFN5V.jpg',
+	user_id: 1,
+	landmark_id: 4
+	)
 Photo.create(
 	title: 'Palace of Fine Arts',
 	caption: FFaker::DizzleIpsum.sentence,
@@ -238,7 +341,13 @@ Photo.create(
 	user_id: 1,
 	landmark_id: 5
 	)
-
+Photo.create(
+	title: 'Palace of Fine Arts',
+	caption: FFaker::DizzleIpsum.sentence,
+	url: 'http://imgur.com/IyzhjuW.jpg',
+	user_id: 1,
+	landmark_id: 5
+	)
 Photo.create(
 	title: 'Grace Cathedral',
 	caption: FFaker::DizzleIpsum.sentence,
@@ -246,7 +355,20 @@ Photo.create(
 	user_id: 2,
 	landmark_id: 6
 	)
-
+Photo.create(
+	title: 'Grace Cathedral',
+	caption: FFaker::DizzleIpsum.sentence,
+	url: 'http://imgur.com/2X7HWac.jpg',
+	user_id: 2,
+	landmark_id: 6
+	)
+Photo.create(
+	title: 'Grace Cathedral',
+	caption: FFaker::DizzleIpsum.sentence,
+	url: 'http://imgur.com/2W4Icxe.jpg',
+	user_id: 2,
+	landmark_id: 6
+	)
 Photo.create(
 	title: 'City Hall',
 	caption: FFaker::DizzleIpsum.sentence,
@@ -254,7 +376,20 @@ Photo.create(
 	user_id: 2,
 	landmark_id: 7
 	)
-
+Photo.create(
+	title: 'City Hall',
+	caption: FFaker::DizzleIpsum.sentence,
+	url: 'http://imgur.com/ow2xObV.jpg',
+	user_id: 2,
+	landmark_id: 7
+	)
+Photo.create(
+	title: 'City Hall',
+	caption: FFaker::DizzleIpsum.sentence,
+	url: 'http://imgur.com/XYNlxgx.jpg',
+	user_id: 2,
+	landmark_id: 7
+	)
 Photo.create(
 	title: 'SF Museum of Modern Art',
 	caption: FFaker::DizzleIpsum.sentence,
@@ -262,7 +397,20 @@ Photo.create(
 	user_id: 2,
 	landmark_id: 8
 	)
-
+Photo.create(
+	title: 'SF Museum of Modern Art',
+	caption: FFaker::DizzleIpsum.sentence,
+	url: 'http://imgur.com/x6fQSTw.jpg',
+	user_id: 2,
+	landmark_id: 8
+	)
+Photo.create(
+	title: 'SF Museum of Modern Art',
+	caption: FFaker::DizzleIpsum.sentence,
+	url: 'http://imgur.com/DDleG9j.jpg',
+	user_id: 2,
+	landmark_id: 8
+	)
 Photo.create(
 	title: 'Fort Mason',
 	caption: FFaker::DizzleIpsum.sentence,
@@ -270,7 +418,13 @@ Photo.create(
 	user_id: 2,
 	landmark_id: 9
 	)
-
+Photo.create(
+	title: 'Fort Mason',
+	caption: FFaker::DizzleIpsum.sentence,
+	url: 'http://imgur.com/E8o6HvI.jpg',
+	user_id: 2,
+	landmark_id: 9
+	)
 Photo.create(
 	title: 'Cupid\'s Span',
 	caption: FFaker::DizzleIpsum.sentence,
@@ -278,7 +432,13 @@ Photo.create(
 	user_id: 2,
 	landmark_id: 10
 	)
-
+Photo.create(
+	title: 'Cupid\'s Span',
+	caption: FFaker::DizzleIpsum.sentence,
+	url: 'http://imgur.com/SM0S1Za.jpg',
+	user_id: 2,
+	landmark_id: 10
+	)
 Photo.create(
 	title: 'Vaillancourt Fountain',
 	caption: FFaker::DizzleIpsum.sentence,
@@ -286,11 +446,24 @@ Photo.create(
 	user_id: 2,
 	landmark_id: 11
 	)
-
+Photo.create(
+	title: 'Vaillancourt Fountain',
+	caption: FFaker::DizzleIpsum.sentence,
+	url: 'http://imgur.com/6jAIBei.jpg',
+	user_id: 2,
+	landmark_id: 11
+	)
 Photo.create(
 	title: 'Lombard Street',
 	caption: FFaker::DizzleIpsum.sentence,
 	url: 'http://i.imgur.com/6plIZoX.jpg',
+	user_id: 2,
+	landmark_id: 12
+	)
+Photo.create(
+	title: 'Lombard Street',
+	caption: FFaker::DizzleIpsum.sentence,
+	url: 'http://imgur.com/HwgDUWP.jpg',
 	user_id: 2,
 	landmark_id: 12
 	)
