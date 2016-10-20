@@ -2,8 +2,6 @@ Rails.application.routes.draw do
 
 	root "landmarks#index"
 	post '/upload', to: 'uploads#upload', as: 'uploads'
-
-
 	resources :landmarks, only: [:index, :show, :delete] do
 		resources :photos, except: [:edit] do
 			member { post :vote }

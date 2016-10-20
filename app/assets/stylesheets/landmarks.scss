@@ -33,8 +33,7 @@ html, body {
   margin-top: 5%;
   width: 100%;
 }
-
-
+  
 .marker-info {
   display: none;
   position: relative;
@@ -43,7 +42,7 @@ html, body {
   padding: 5%;
 }
 
-.marker-title, .marker-description {
+.marker-title, .marker-description, .marker-address {
   text-align: center;
 }
 

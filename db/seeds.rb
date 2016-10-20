@@ -18,6 +18,7 @@ Landmark.destroy_all
 Photo.destroy_all
 
 #user_id : 1
+
 User.create(
 	first_name: 'Mikey',
 	last_name: 'Rogachevsky',
