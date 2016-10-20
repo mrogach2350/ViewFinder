@@ -6,33 +6,298 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-landmarks = [
-	{	title: 'Golden Gate Bridge',
-		description: "https://static.pexels.com/photos/90829/pexels-photo-90829.jpeg"
-	},
-	{	title: 'Muir Woods',
-		description: "https://static.pexels.com/photos/9579/pexels-photo.jpeg"
-	},
-	{	title: 'Bay Bridge',
-		description: "https://static.pexels.com/photos/1188/city-landmark-lights-night.jpg"
-	},
-	{	title: 'Alcatraz',
-		description: "https://static.pexels.com/photos/33545/sunrise-phu-quoc-island-ocean.jpg"
-	}
-]
+
+tables = ['users', 'landmarks', 'photos']
+
+tables.each do |table|
+	ActiveRecord::Base.connection.execute("TRUNCATE #{table} RESTART IDENTITY")
+end
+
+User.destroy_all
+Landmark.destroy_all
+Photo.destroy_all
+
+#user_id : 1
+
 User.create(
-	first_name: FFaker::Name.first_name,
-	last_name: FFaker::Name.last_name,
-	email: FFaker::Internet.email,
-	password_digest: 'password',
+	first_name: 'Mikey',
+	last_name: 'Rogachevsky',
+	email: 'mikey@ga.com',
+	password: '1234',
 	bio: FFaker::BaconIpsum.sentence
 	)
 
+<<<<<<< HEAD
 Landmark.create(landmarks)
+=======
+#user_id : 2
+User.create(
+	first_name: 'Ashley',
+	last_name: 'Vernon',
+	email: 'ashley@ga.com',
+	password: '1234',
+	bio: FFaker::BaconIpsum.sentence
+	)
+
+#user_id : 3
+User.create(
+	first_name: 'Wolf',
+	last_name: 'Reese',
+	email: 'wolf@ga.com',
+	password: '1234',
+	bio: FFaker::BaconIpsum.sentence
+	)
+
+#user_id : 4
+User.create(
+	first_name: 'Sera',
+	last_name: 'Bak',
+	email: 'sera@ga.com',
+	password: '1234',
+	bio: FFaker::BaconIpsum.sentence
+	)
+
+
+	#user_id : 1
+	User.create(
+		first_name: 'Mikey',
+		last_name: 'Rogachevsky',
+		email: 'mikey@ga.com',
+		password: '1234',
+		bio: FFaker::BaconIpsum.sentence
+		)
+
+	#user_id : 2
+	User.create(
+		first_name: 'Ashley',
+		last_name: 'Vernon',
+		email: 'ashley@ga.com',
+		password: '1234',
+		bio: FFaker::BaconIpsum.sentence
+		)
+
+	#user_id : 3
+	User.create(
+		first_name: 'Wolf',
+		last_name: 'Reese',
+		email: 'wolf@ga.com',
+		password: '1234',
+		bio: FFaker::BaconIpsum.sentence
+		)
+
+	#user_id : 4
+	User.create(
+		first_name: 'Sera',
+		last_name: 'Bak',
+		email: 'sera@ga.com',
+		password: '1234',
+		bio: FFaker::BaconIpsum.sentence
+		)
+
+#landmark_id : 1
+golden_gate = Landmark.create(
+	title: 'Golden Gate Bridge',
+	description: FFaker::DizzleIpsum.sentence,
+	lat: -122.4783,
+	long: 37.8199,
+	url: 'http://imgur.com/CZmb3Qp.jpg'
+	)
+
+#landmark_id : 2
+bay_bridge = Landmark.create(
+	title: 'Bay Bridge',
+	description: FFaker::DizzleIpsum.sentence,
+	lat: -122.3778,
+	long: 37.7983,
+	url: 'http://imgur.com/BvgKy9t.jpg'
+	)
+
+#landmark_id : 3
+coit_tower = Landmark.create(
+	title: 'Coit Tower',
+	description: FFaker::DizzleIpsum.sentence,
+	lat: -122.4058,
+	long: 37.8024,
+	url: 'http://imgur.com/1CF6yPl.jpg'
+	)
+
+#landmark_id : 4
+ferry_building = Landmark.create(
+	title: 'Ferry Building',
+	description: FFaker::DizzleIpsum.sentence,
+	lat: -122.3933,
+	long: 37.7956,
+	url: 'http://imgur.com/2rVDzWa.jpg'
+	)
+
+#landmark_id : 5
+palace_of_fine_arts = Landmark.create(
+	title: 'Palace of Fine Arts',
+	description: FFaker::DizzleIpsum.sentence,
+	lat: -122.4484,
+	long: 37.8029,
+	url: 'http://imgur.com/XK0af6z.jpg'
+	)
+
+#landmark_id : 6
+grace_cathedral = Landmark.create(
+	title: 'Grace Cathedral',
+	description: FFaker::DizzleIpsum.sentence,
+	lat: -122.4134,
+	long: 37.7920,
+	url: 'http://imgur.com/LqrkIMd.jpg'
+	)
+
+#landmark_id : 7
+city_hall = Landmark.create(
+	title: 'City Hall',
+	description: FFaker::DizzleIpsum.sentence,
+	lat: -122.4188,
+	long: 37.7793,
+	url: 'http://imgur.com/t51HqJ8.jpg'
+	)
+
+#landmark_id : 8
+sfmoma = Landmark.create(
+	title: 'SF Museum of Modern Art',
+	description: FFaker::DizzleIpsum.sentence,
+	lat: -122.4009,
+	long: 37.7855,
+	url: 'http://imgur.com/x6fQSTw.jpg'
+	)
+
+#landmark_id : 9
+fort_mason = Landmark.create(
+	title: 'Fort Mason',
+	description: FFaker::DizzleIpsum.sentence,
+	lat: -122.4321,
+	long: 37.8064,
+	url: 'http://imgur.com/ZZ119aC.jpg'
+	)
+
+#landmark_id : 10
+cupids_span = Landmark.create(
+	title: "Cupid's Span",
+	description: FFaker::DizzleIpsum.sentence,
+	lat: -122.3900,
+	long: 37.7916,
+	url: 'http://imgur.com/p1XbePI.jpg'
+	)
+
+#landmark_id : 11
+vaillancourt_fountain = Landmark.create(
+	title: 'Vaillancourt Fountain',
+	description: FFaker::DizzleIpsum.sentence,
+	lat: -122.3954,
+	long: 37.7955,
+	url: 'http://imgur.com/6jAIBei.jpg'
+	)
+
+#landmark_id : 12
+lombard_street = Landmark.create(
+	title: 'Lombard Street',
+	description: FFaker::DizzleIpsum.sentence,
+	lat: -122.4187,
+	long: 37.8021,
+	url: 'http://imgur.com/6plIZoX.jpg'
+	)
+>>>>>>> 40bcf42f7836a0330a2145c67dc4cd0633e5397c
 
 Photo.create(
-	title: 'Photo Title',
+	title: 'Golden Gate Bridge',
+	caption: FFaker::DizzleIpsum.sentence,
 	url: 'http://images.mentalfloss.com/sites/default/files/styles/article_640x430/public/istock_000001168352_small.jpg',
 	user_id: 1,
 	landmark_id: 1
 	)
+<<<<<<< HEAD
+=======
+
+Photo.create(
+	title: 'Bay Bridge',
+	caption: FFaker::DizzleIpsum.sentence,
+	url: 'http://www.dot.ca.gov/hq/esc/tollbridge/SFOBB/jpgs/SFOBBnight.jpg',
+	user_id: 1,
+	landmark_id: 2
+	)
+
+Photo.create(
+	title: 'Coit Tower',
+	caption: FFaker::DizzleIpsum.sentence,
+	url: 'http://cdn.funcheap.com/wp-content/uploads/2013/10/coit-tower-2.jpg',
+	user_id: 1,
+	landmark_id: 3
+	)
+
+Photo.create(
+	title: 'Ferry Building',
+	caption: FFaker::DizzleIpsum.sentence,
+	url: 'http://i.imgur.com/2rVDzWa.jpg',
+	user_id: 1,
+	landmark_id: 4
+	)
+
+Photo.create(
+	title: 'Palace of Fine Arts',
+	caption: FFaker::DizzleIpsum.sentence,
+	url: 'http://i.imgur.com/XK0af6z.jpg',
+	user_id: 1,
+	landmark_id: 5
+	)
+
+Photo.create(
+	title: 'Grace Cathedral',
+	caption: FFaker::DizzleIpsum.sentence,
+	url: 'http://i.imgur.com/LqrkIMd.jpg',
+	user_id: 2,
+	landmark_id: 6
+	)
+
+Photo.create(
+	title: 'City Hall',
+	caption: FFaker::DizzleIpsum.sentence,
+	url: 'http://i.imgur.com/t51HqJ8.jpg',
+	user_id: 2,
+	landmark_id: 7
+	)
+
+Photo.create(
+	title: 'SF Museum of Modern Art',
+	caption: FFaker::DizzleIpsum.sentence,
+	url: 'http://i.imgur.com/4XabPap.jpg',
+	user_id: 2,
+	landmark_id: 8
+	)
+
+Photo.create(
+	title: 'Fort Mason',
+	caption: FFaker::DizzleIpsum.sentence,
+	url: 'http://cdn.funcheap.com/wp-content/uploads/2013/10/coit-tower-2.jpg',
+	user_id: 2,
+	landmark_id: 9
+	)
+
+Photo.create(
+	title: 'Cupid\'s Span',
+	caption: FFaker::DizzleIpsum.sentence,
+	url: 'http://i.imgur.com/p1XbePI.jpg',
+	user_id: 2,
+	landmark_id: 10
+	)
+
+Photo.create(
+	title: 'Vaillancourt Fountain',
+	caption: FFaker::DizzleIpsum.sentence,
+	url: 'http://i.imgur.com/6jAIBei.jpg',
+	user_id: 2,
+	landmark_id: 11
+	)
+
+Photo.create(
+	title: 'Lombard Street',
+	caption: FFaker::DizzleIpsum.sentence,
+	url: 'http://i.imgur.com/6plIZoX.jpg',
+	user_id: 2,
+	landmark_id: 12
+	)
+>>>>>>> 40bcf42f7836a0330a2145c67dc4cd0633e5397c

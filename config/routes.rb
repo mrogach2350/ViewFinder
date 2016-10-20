@@ -1,25 +1,29 @@
 Rails.application.routes.draw do
 
- 	get '/', to: 'photos#index', as: 'photos'
+	root "landmarks#index"
+	post '/upload', to: 'uploads#upload', as: 'uploads'
 
- 	# take out later
-	get '/users/new', to: 'users#new', as: 'new_user'
+
+	resources :landmarks, only: [:index, :show, :delete] do
+		resources :photos, except: [:edit]
+	end
+
+
+
+
 	get '/users/:id', to: 'users#show', as: 'user'
-
-
 	post '/users', to: 'users#create'
-	#take out later
-	get '/users/:id/edit', to: 'users#edit'
+	# delete '/users/:id', to: 'users#destroy'
 
 	patch '/users/:id', to: 'users#update'
-	delete '/users/:id', to: 'users#destroy'
+	get '/users/:id/delete', to: 'users#destroy'
 
-	get '/landmarks', to: 'landmarks#index', as: 'map'
-	get '/landmarks/:id', to: 'landmarks#show', as: 'landmark'
+	post '/sessions', to: 'sessions#create'
+	get '/logout', to: 'sessions#destroy'
 
-	get '/photos/:id', to:'photos#show', as: 'photo'
-	post '/photos', to: 'photos#create'
-	patch '/photos/:id/edit', to: 'photos#update'
-	delete '/photos/:id/delete', to: 'photos#destroy'
+	post '/comments', to: 'comments#create'
 
+	get '/about', to: 'users#index', as: 'about'
+
+	get '/rules', to: 'sessions#index', as: 'rules'
 end

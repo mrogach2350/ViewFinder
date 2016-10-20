@@ -9,27 +9,52 @@
     <link href='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.css' rel='stylesheet' />
     <script src='https://api.mapbox.com/mapbox-gl-js/v0.26.0/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v0.26.0/mapbox-gl.css' rel='stylesheet' />
+    <script src="https://npmcdn.com/@turf/turf@3.5.1/turf.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
 
   <body>
+
+    <%= cloudinary_js_config %>
+
     <nav>
-      <div class="nav-wrapper">
-        <a id="test" class="brand-logo col s5 offset-s1">Logo</a>
-        <ul id="nav-mobile" class="right">
-          <li><a href="#" data-activates="login" class="side_btn">Login</a></li>
-          <li><a href="#" data-activates="sign_up" class="side_btn">Sign Up</a></li>
-          <li><a href="#" data-activates="upload" class="side_btn">Upload</a></li>
+      <div class="nav-wrapper grey-text text-lighten-4">
+        <a href="/" id="logo"class="brand-logo col s5 offset-s1">ViewFinder</a>
+        <a data-activates="mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <% if current_user %>
+            <li><a href="<%=user_path(current_user)%>">Profile</a></li>
+            <li><a href="/logout">Logout</a></li>
+          <% else %>
+            <li><a href="#" data-activates="login" class="side_btn">Login</a></li>
+            <li><a href="#" data-activates="sign_up" class="side_btn">Sign Up</a></li>
+          <% end %>
+        </ul>
+        <ul id="mobile" class="side-nav">
+          <% if current_user %>
+            <li><a href="<%=user_path(current_user)%>">Profile</a></li>
+            <li><a href="/logout">Logout</a></li>
+          <% else %>
+            <li><a href="#" data-activates="login" class="side_btn">Login</a></li>
+            <li><a href="#" data-activates="sign_up" class="side_btn">Sign Up</a></li>
+          <% end %>
         </ul>
       </div>
+
     </nav>
 
     <ul id="login" class="side-nav">
       <div class="container">
         <li>Log In</li>
-        <%= form_for(User.new) do |f| %>
-          <li><%= f.email_field :email, placeholder: 'Email' %></li>
-          <li><%= f.password_field :email, placeholder: 'Password' %></li>
-          <li><%= f.submit %></li>
+        <%= form_for :user, url: '/sessions' do |f| %>
+          <div>
+            <%= f.email_field :email, placeholder: "Email" %>
+          </div>
+          <div>
+            <%= f.password_field :password, placeholder: "Password" %>
+          </div>
+          <%= f.submit "Log In" %>
         <% end %>
       </div>
     </ul>
@@ -41,25 +66,27 @@
           <li><%= f.text_field :first_name, placeholder: 'First name' %></li>
           <li><%= f.text_field :last_name, placeholder: 'Last name' %></li>
           <li><%= f.email_field :email, placeholder: 'Email' %></li>
-          <li><%= f.password_field :email, placeholder: 'Password' %></li>
+          <li><%= f.password_field :password, placeholder: 'Password' %></li>
           <li><%= f.submit %></li>
         <% end %>
       </div>
     </ul>
 
-    <ul id="upload" class="side-nav">
-      <li><div class="userView">
-        <a href="#!name"><span class="white-text name">John Doe</span></a>
-        <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
-      </div></li>
-      <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
-      <li><a href="#!">Second Link</a></li>
-      <li><div class="divider"></div></li>
-      <li><a class="subheader">Subheader</a></li>
-      <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
-    </ul>
-
+    <div id="flash">
+      <% flash.each do |name, msg| %>
+      <h5><%= name.capitalize %>: <%= msg %></h5>
+      <% end %>
+    </div>
 
     <%= yield %>
+
+    <footer id="footer" class="page-footer">
+        <div class="container">
+        <a class="ftr_lnk" rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a>
+        <a href="/about" class="grey-text text-lighten-4 ftr_lnk">2016 Viewfinder Team</a>
+        <a href="/rules"  class="grey-text text-lighten-4 ftr_lnk">Community Rules</a>
+        <a href="https://creativecommons.org" target="_blank" class="grey-text text-lighten-4 ftr_lnk">Creative Commons</a>
+        </div>
+    </footer>
   </body>
 </html>

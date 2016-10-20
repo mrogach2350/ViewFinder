@@ -9,9 +9,13 @@ html, body {
   color: #03a9f4 !important;
 }
 
+.blueify-bgk {
+  background-color: #03a9f4 !important;
+}
+
 #map-container {
   height: 100%;
-  width: 100%;
+  width: 99%;
 }
 
 #map {
@@ -23,4 +27,21 @@ html, body {
   background-color: #d1c4e9;
   height: 100%;
   overflow: auto;
+}
+
+#map-reset {
+  margin-top: 5%;
+  width: 100%;
+}
+
+.marker-info {
+  display: none;
+  position: relative;
+  left: -350px;
+  top: -300;
+  padding: 5%;
+}
+
+.marker-title, .marker-description {
+  text-align: center;
 }

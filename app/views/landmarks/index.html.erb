@@ -3,14 +3,18 @@
   <div id="landmark-sidebar" class="col s6 m3">
     <div class="row">
       <% @landmarks.each do |lm, i| %>
+
       <div class="col s12">
-        <div class="card hoverable landmark-list-card">
+        <button class="btn blueify-bgk" id="map-reset">Reset</button>
+      </div>
+      <% @landmarks.each do |lm, i| %>
+      <div class="col s12">
+        <div class="card hoverable landmark-list-card" data-id="<%=lm.id%>" data-lat="<%=lm.lat%>" data-lng="<%=lm.long%>">
           <div class="card-image">
-            <img class="responsive-img" src="<%= lm.description %>">
-            <span class="card-title"><%= lm.title %></span>
+            <img class="responsive-img" src="<%= lm.url %>">
           </div>
           <div class="card-action">
-            <a class="blueify" href="/landmarks/<%= lm.id %>">Go to landmark</a>
+            <a class="blueify" href="/landmarks/<%= lm.id %>"><%= lm.title %></a>
           </div>
         </div>
       </div>
@@ -21,9 +25,9 @@
 
 <script>
 $(document).on('turbolinks:load', function() {
-  console.log('script running');
   mapboxgl.accessToken = 'pk.eyJ1Ijoid28xcGgiLCJhIjoiY2l1YThnemRoMDAxeTJ5bDcyYW82MTZxMSJ9.6KW1QasMXf9JJ2M81bQ-1g'
   var sfCoords = new mapboxgl.LngLat(	-122.4350, 37.7609);
+<<<<<<< HEAD
   var imageUrl = "https://static.pexels.com/photos/90829/pexels-photo-90829.jpeg";
   var coords = [
     [-122.429383, 37.785413],
@@ -31,12 +35,16 @@ $(document).on('turbolinks:load', function() {
     [-122.400869, 37.760493],
     [-122.435004, 37.760908],
   ]
+=======
+
+>>>>>>> 40bcf42f7836a0330a2145c67dc4cd0633e5397c
   var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/dark-v9',
     center: sfCoords,
     zoom: 10.5
   });
+<<<<<<< HEAD
   map.on('load', function(){
     console.log('map loaded');
     map.easeTo({
@@ -66,5 +74,164 @@ $(document).on('turbolinks:load', function() {
  <% for @landmark in @landmarks %>
   console.log('<%= @landmark.title %>');
  <% end %>
+=======
+
+  map.on('load', function(){
+    //slight zoom animation when the map loads
+    map.easeTo({
+      zoom: 11.5,
+      bearing: 10,
+      duration: 2000,
+      center: sfCoords
+    });
+
+    var markers = [];
+
+    <% for @landmark in @landmarks %>
+      //creates a marker feature for each landmark
+        markers.push({
+          "type": "Feature",
+          "geometry": {
+              "type": "Point",
+              "coordinates": [<%= @landmark.lat %>, <%= @landmark.long %>]
+          },
+          "properties": {
+              "landmark": "<%= @landmark.title %>",
+              "description": "<%= @landmark.description %>",
+              "iconSize": [20,20],
+              "url": "<%= @landmark.url %>"
+          }
+      });
+    <% end %>
+
+    //creates a FeatureCollection for mapbox from our array of markers
+    var markerCollection = {
+      "type": "FeatureCollection",
+      "features": markers
+    }
+
+    markerCollection.features.forEach(function(marker, i) {
+      //create a div for our custom marker and set background image to image of landmark
+      var markerDiv = document.createElement('div');
+      $(markerDiv).addClass('marker').attr('id', 'marker'+ (i + 1))
+                  .css({'background-image': 'url(' + marker.properties.url +')', 'position': 'relative',
+                        'background-size': 'cover', 'border-radius': '90%', 'border': '2px solid #03a9f4',
+                        'width': marker.properties.iconSize[0], 'height': marker.properties.iconSize[1]});
+
+      //create info card to show on marker click
+      var infoDiv = document.createElement('div');
+      $(infoDiv).addClass("card marker-info");
+      $(infoDiv).append('<h4 class="marker-title">' + marker.properties.landmark + '</h4>')
+                .append('<p class="marker-description">' + marker.properties.description + '</p>');
+
+      $(markerDiv).append(infoDiv);
+
+      $(markerDiv).click(function() {
+       //only show info card if marker height is large (map is zoomed in)
+       if($(markerDiv).height() > 20) {
+          //toggle showing info card
+          if($(infoDiv).css('display') == 'none') {
+            $(infoDiv).css('display', 'block');
+          } else {
+            $(infoDiv).css('display', 'none');
+          }
+      } else {
+        $('.marker-info').css('display', 'none');
+        var markerHeight;
+        $('.marker').each(function(i, marker) {
+            //shrinkMarker function only shrinks a marker if the marker
+            shrinkMarker($(marker));
+        });
+
+        var id = i + 1;
+        enlargeMarker($('#marker' + id));
+
+        map.flyTo({
+          zoom: 20,
+          center: new mapboxgl.LngLat(marker.geometry.coordinates[0], marker.geometry.coordinates[1]),
+          pitch: 180
+        });
+      }
+
+      });
+
+      new mapboxgl.Marker(markerDiv).setLngLat(marker.geometry.coordinates)
+                                    .addTo(map);
+    });
+  });
+
+
+  $('#map-reset').click(function() {
+
+    $('.marker-info').css('display', 'none');
+
+    $('.marker').each(function(i, marker) {
+        shrinkMarker($(marker));
+    });
+    map.flyTo({
+      zoom: 11.5,
+      pitch: -180,
+      center: sfCoords
+    });
+  });
+
+  $('.landmark-list-card').click(function() {
+    $('.marker-info').css('display', 'none');
+    var markerHeight;
+    $('.marker').each(function(i, marker) {
+      markerHeight = $(marker).height();
+      if(markerHeight > 20) {
+        shrinkMarker($(marker));
+      }
+    });
+
+    var id = $(this).data("id");
+    enlargeMarker($('#marker' + id));
+    var lat = $(this).attr('data-lat');
+    var lng = $(this).attr('data-lng');
+
+    map.flyTo({
+      zoom: 20,
+      center: new mapboxgl.LngLat(lat, lng),
+      pitch: 180
+    });
+  });
+>>>>>>> 40bcf42f7836a0330a2145c67dc4cd0633e5397c
 });
+
+function shrinkMarker(marker) {
+  if (marker.height() > 20) {
+    marker.animate({
+      height: "-=300",
+      width: "-=300",
+      top: "+=300"
+    }, 1000);
+  }
+}
+
+function enlargeMarker(marker) {
+  marker.animate({
+    height: "+=300",
+    width: "+=300",
+    top: "-=300"
+  }, 2000);
+}
+
+
+
+//Ignore: Playing with finding nearest landmark
+//   var point = {
+//     "type": "Feature",
+//     "properties": {
+//       "marker-color": "#0f0"
+//     },
+//     "geometry": {
+//       "type": "Point",
+//       "coordinates": [-122.430445, 37.807413]
+//     }
+// };
+//
+//
+//   var nearest = turf.nearest(point, markerCollection);
+//   console.log('Nearest landmark: '+ nearest.properties.message);
 </script>

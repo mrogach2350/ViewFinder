@@ -1,6 +1,8 @@
-<% @photos.each do |photo| %>
-<div class="container">
-  <h1><%= photo.title %></h1> <br>
-  <%= image_tag photo.url %>
+<div class="carousel carousel-slider" data-indicators="true">
+  <% @photos.each do |photo| %>
+    <div class="carousel-item image" href="#one!">
+      <!-- <h2 class="center black-text"><%= photo.title %></h2> -->
+      <%= cl_image_tag(photo.url) %>
+    </div>
+  <% end %>
 </div>
-<% end %>
