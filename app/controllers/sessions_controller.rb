@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-	def new 
+	def new
 		@user = User.new
 	end
 
@@ -11,16 +11,19 @@ class SessionsController < ApplicationController
 			flash[:notice] = "Successfully logged in."
 			redirect_to @user
 		else
-			flash[:error] = "Incorrect email or password." 
-			redirect_to photos_path
+			flash[:error] = "Incorrect email or password."
+			redirect_to root_path
 		end
+	end
+
+	def index
 	end
 
 	def destroy
 		session[:user_id] = nil
 		flash[:notice] = "Successfully logged out."
 		# logout
-		redirect_to photos_path
+		redirect_to root_path
 	end
 
 
