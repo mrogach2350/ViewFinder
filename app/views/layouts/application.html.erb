@@ -62,7 +62,7 @@
     <ul id="sign_up" class="side-nav">
       <div class="container">
         <li>Join!</li>
-        <%= form_for(User.new) do |f| %>
+        <%= form_for User.new do |f| %>
           <li><%= f.text_field :first_name, placeholder: 'First name' %></li>
           <li><%= f.text_field :last_name, placeholder: 'Last name' %></li>
           <li><%= f.email_field :email, placeholder: 'Email' %></li>
