@@ -2,7 +2,7 @@ class PhotosController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def index
-    @photos = Photo.all
+    @photos = Photo.find_with_reputation(:votes, :all, order: "votes desc")
   end
 
 
