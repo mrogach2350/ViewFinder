@@ -6,18 +6,19 @@
         <button class="btn blueify-bgk" id="map-reset">Reset</button>
       </div>
       <% @landmarks.each do |lm, i| %>
-      <div class="col s12">
-        <div class="card hoverable landmark-list-card" data-id="<%=lm.id%>" data-lat="<%=lm.lat%>" data-lng="<%=lm.long%>">
-          <div class="card-image">
-            <img class="responsive-img" src="<%= lm.url %>">
-            <span class="card-title"><%= lm.title %></span>
-          </div>
-          <div class="card-action">
-            <a class="blueify" href="/landmarks/<%= lm.id %>">Landmark page</a>
+        <div class="col s12">
+          <div class="card hoverable landmark-list-card" data-id="<%=lm.id%>"
+                      data-title="<%= lm.title %>" data-lat="<%=lm.lat%>" data-lng="<%=lm.long%>">
+            <div class="card-image">
+              <img class="responsive-img" src="<%= lm.url %>">
+              <span class="card-title"><%= lm.title %></span>
+            </div>
+            <div class="card-action">
+              <a class="blueify" href="/landmarks/<%= lm.id %>">Landmark page</a>
+            </div>
           </div>
         </div>
-      </div>
-      <% end %>
+    <% end %>
     </div>
   </div>
 </div>
@@ -56,6 +57,7 @@ $(document).on('turbolinks:load', function() {
           "properties": {
               "landmark": "<%= @landmark.title %>",
               "description": "<%= @landmark.description %>",
+              "address": "<%= @landmark.address %>",
               "iconSize": [20,20],
               "url": "<%= @landmark.url %>"
           }
@@ -72,6 +74,7 @@ $(document).on('turbolinks:load', function() {
       //create a div for our custom marker and set background image to image of landmark
       var markerDiv = document.createElement('div');
       $(markerDiv).addClass('marker').attr('id', 'marker'+ (i + 1))
+                  .data('landmark', marker.properties.landmark)
                   .css({'background-image': 'url(' + marker.properties.url +')', 'position': 'relative',
                         'background-size': 'cover', 'border-radius': '90%', 'border': '2px solid #03a9f4',
                         'width': marker.properties.iconSize[0], 'height': marker.properties.iconSize[1]});
@@ -80,7 +83,8 @@ $(document).on('turbolinks:load', function() {
       var infoDiv = document.createElement('div');
       $(infoDiv).addClass("card marker-info");
       $(infoDiv).append('<h4 class="marker-title">' + marker.properties.landmark + '</h4>')
-                .append('<p class="marker-description">' + marker.properties.description + '</p>');
+                .append('<p class="marker-description">' + marker.properties.description + '</p>')
+                .append('<p class="marker-address">' + marker.properties.address + '</p>');
 
       $(markerDiv).append(infoDiv);
 
@@ -97,7 +101,7 @@ $(document).on('turbolinks:load', function() {
         $('.marker-info').css('display', 'none');
         var markerHeight;
         $('.marker').each(function(i, marker) {
-            //shrinkMarker function only shrinks a marker if the marker
+            //shrinkMarker function only shrinks a marker if the marker is enlarged
             shrinkMarker($(marker));
         });
 
@@ -110,12 +114,13 @@ $(document).on('turbolinks:load', function() {
           pitch: 180
         });
       }
+    });
 
-      });
-
+      //add marker to map
       new mapboxgl.Marker(markerDiv).setLngLat(marker.geometry.coordinates)
                                     .addTo(map);
     });
+
   });
 
 
@@ -134,19 +139,18 @@ $(document).on('turbolinks:load', function() {
   });
 
   $('.landmark-list-card').click(function() {
+    var lat = $(this).data('lat'),
+    lng = $(this).data('lng'), id = $(this).data('id');
+
+
     $('.marker-info').css('display', 'none');
     var markerHeight;
     $('.marker').each(function(i, marker) {
-      markerHeight = $(marker).height();
-      if(markerHeight > 20) {
-        shrinkMarker($(marker));
-      }
+      shrinkMarker($(marker));
     });
 
-    var id = $(this).data("id");
+
     enlargeMarker($('#marker' + id));
-    var lat = $(this).attr('data-lat');
-    var lng = $(this).attr('data-lng');
 
     map.flyTo({
       zoom: 20,
@@ -154,6 +158,8 @@ $(document).on('turbolinks:load', function() {
       pitch: 180
     });
   });
+
+
 });
 
 function shrinkMarker(marker) {
