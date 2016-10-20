@@ -34,7 +34,11 @@ gem 'ffaker'
 gem 'carrierwave'
 gem 'cloudinary'
 gem 'social-share-button'
+
 gem 'activerecord-reputation-system'
+
+
+gem 'acts_as_commentable_with_threading'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

@@ -7,13 +7,12 @@
       </div>
       <% @landmarks.each do |lm, i| %>
       <div class="col s12">
-        <div class="card hoverable landmark-list-card" data-lat="<%=lm.lat%>" data-lng="<%=lm.long%>">
+        <div class="card hoverable landmark-list-card" data-id="<%=lm.id%>" data-lat="<%=lm.lat%>" data-lng="<%=lm.long%>">
           <div class="card-image">
             <img class="responsive-img" src="<%= lm.url %>">
-            <span class="card-title"><%= lm.title %></span>
           </div>
           <div class="card-action">
-            <a class="blueify" href="/landmarks/<%= lm.id %>">Landmark page</a>
+            <a class="blueify" href="/landmarks/<%= lm.id %>"><%= lm.title %></a>
           </div>
         </div>
       </div>
@@ -35,7 +34,7 @@ $(document).on('turbolinks:load', function() {
   });
 
   map.on('load', function(){
-    console.log('map loaded');
+    //slight zoom animation when the map loads
     map.easeTo({
       zoom: 11.5,
       bearing: 10,
@@ -43,19 +42,89 @@ $(document).on('turbolinks:load', function() {
       center: sfCoords
     });
 
+    var markers = [];
+
     <% for @landmark in @landmarks %>
-      //TODO: find a way to make markers visible (geoJSON)
-       var marker = new mapboxgl.Marker().setLngLat([<%= @landmark.lat %>, <%= @landmark.long %>]);
-       //$(marker).css('background-color', 'red' );
-       var popup = new mapboxgl.Popup({offset:[0, -30]})
-      .setText('Construction on the Washington Monument began in 1848.');
-       marker.setPopup(popup);
-       marker.addTo(this);
+      //creates a marker feature for each landmark
+        markers.push({
+          "type": "Feature",
+          "geometry": {
+              "type": "Point",
+              "coordinates": [<%= @landmark.lat %>, <%= @landmark.long %>]
+          },
+          "properties": {
+              "landmark": "<%= @landmark.title %>",
+              "description": "<%= @landmark.description %>",
+              "iconSize": [20,20],
+              "url": "<%= @landmark.url %>"
+          }
+      });
     <% end %>
+
+    //creates a FeatureCollection for mapbox from our array of markers
+    var markerCollection = {
+      "type": "FeatureCollection",
+      "features": markers
+    }
+
+    markerCollection.features.forEach(function(marker, i) {
+      //create a div for our custom marker and set background image to image of landmark
+      var markerDiv = document.createElement('div');
+      $(markerDiv).addClass('marker').attr('id', 'marker'+ (i + 1))
+                  .css({'background-image': 'url(' + marker.properties.url +')', 'position': 'relative',
+                        'background-size': 'cover', 'border-radius': '90%', 'border': '2px solid #03a9f4',
+                        'width': marker.properties.iconSize[0], 'height': marker.properties.iconSize[1]});
+
+      //create info card to show on marker click
+      var infoDiv = document.createElement('div');
+      $(infoDiv).addClass("card marker-info");
+      $(infoDiv).append('<h4 class="marker-title">' + marker.properties.landmark + '</h4>')
+                .append('<p class="marker-description">' + marker.properties.description + '</p>');
+
+      $(markerDiv).append(infoDiv);
+
+      $(markerDiv).click(function() {
+       //only show info card if marker height is large (map is zoomed in)
+       if($(markerDiv).height() > 20) {
+          //toggle showing info card
+          if($(infoDiv).css('display') == 'none') {
+            $(infoDiv).css('display', 'block');
+          } else {
+            $(infoDiv).css('display', 'none');
+          }
+      } else {
+        $('.marker-info').css('display', 'none');
+        var markerHeight;
+        $('.marker').each(function(i, marker) {
+            //shrinkMarker function only shrinks a marker if the marker
+            shrinkMarker($(marker));
+        });
+
+        var id = i + 1;
+        enlargeMarker($('#marker' + id));
+
+        map.flyTo({
+          zoom: 20,
+          center: new mapboxgl.LngLat(marker.geometry.coordinates[0], marker.geometry.coordinates[1]),
+          pitch: 180
+        });
+      }
+
+      });
+
+      new mapboxgl.Marker(markerDiv).setLngLat(marker.geometry.coordinates)
+                                    .addTo(map);
+    });
   });
 
 
   $('#map-reset').click(function() {
+
+    $('.marker-info').css('display', 'none');
+
+    $('.marker').each(function(i, marker) {
+        shrinkMarker($(marker));
+    });
     map.flyTo({
       zoom: 11.5,
       pitch: -180,
@@ -64,14 +133,61 @@ $(document).on('turbolinks:load', function() {
   });
 
   $('.landmark-list-card').click(function() {
+    $('.marker-info').css('display', 'none');
+    var markerHeight;
+    $('.marker').each(function(i, marker) {
+      markerHeight = $(marker).height();
+      if(markerHeight > 20) {
+        shrinkMarker($(marker));
+      }
+    });
+
+    var id = $(this).data("id");
+    enlargeMarker($('#marker' + id));
     var lat = $(this).attr('data-lat');
     var lng = $(this).attr('data-lng');
 
     map.flyTo({
-      zoom: 18,
+      zoom: 20,
       center: new mapboxgl.LngLat(lat, lng),
       pitch: 180
     });
   });
 });
+
+function shrinkMarker(marker) {
+  if (marker.height() > 20) {
+    marker.animate({
+      height: "-=300",
+      width: "-=300",
+      top: "+=300"
+    }, 1000);
+  }
+}
+
+function enlargeMarker(marker) {
+  marker.animate({
+    height: "+=300",
+    width: "+=300",
+    top: "-=300"
+  }, 2000);
+}
+
+
+
+//Ignore: Playing with finding nearest landmark
+//   var point = {
+//     "type": "Feature",
+//     "properties": {
+//       "marker-color": "#0f0"
+//     },
+//     "geometry": {
+//       "type": "Point",
+//       "coordinates": [-122.430445, 37.807413]
+//     }
+// };
+//
+//
+//   var nearest = turf.nearest(point, markerCollection);
+//   console.log('Nearest landmark: '+ nearest.properties.message);
 </script>

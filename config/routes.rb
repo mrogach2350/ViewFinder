@@ -1,11 +1,17 @@
 Rails.application.routes.draw do
 
-	get '/', to: 'photos#index', as: 'photos'
+	root "landmarks#index"
 	post '/upload', to: 'uploads#upload', as: 'uploads'
-	resources :landmarks, only: [:index, :show] do
-		member { post :vote }
-	resources :photos, except: [:edit]
+
+
+	resources :landmarks, only: [:index, :show, :delete] do
+		resources :photos, except: [:edit] do
+			member { post :vote }
 	end
+
+
+
+
 
 	get '/users/:id', to: 'users#show', as: 'user'
 	post '/users', to: 'users#create'
@@ -17,4 +23,9 @@ Rails.application.routes.draw do
 	post '/sessions', to: 'sessions#create'
 	get '/logout', to: 'sessions#destroy'
 
+	post '/comments', to: 'comments#create'
+
+	get '/about', to: 'users#index', as: 'about'
+
+	get '/rules', to: 'sessions#index', as: 'rules'
 end

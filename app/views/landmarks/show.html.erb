@@ -1,10 +1,39 @@
 
-<div>
-	<em>
-		<%= @landmark.title %>
 
-		<%= link_to "up", vote_landmark_path(@landmark.id, type: "up"), method: "post" %>
-		<%= link_to "down", vote_landmark_path(@landmark.id, type: "down"), method: "post" %> 
-	</em>
+<h1><%= @landmark.title %></h1>
+<div id="photo_display" class="row">
+  <%  @landmark.photos.each do |photo| %>
+      <div class="col s6 m4 l3">
+        <div class="card" id="show_photo">
+          <div class="card-image waves-effect waves-block waves-light">
+            <%= cl_image_tag(photo.url, id: 'card_photo', class: 'activator')  %>
+          </div>
+          <div class="card-reveal">
+            <span id="card_title" class="card-title grey-text text-darken-4 flow-text"><%= photo.title %></span>
+            <p><%= photo.caption %></p>
+            <a href="/landmarks/<%=photo.landmark_id%>/photos/<%=photo.id%>">Learn More</a>
+				<%= link_to "up", vote_photo_path(photo, type: "up"), method: "post" %>
+				<%= link_to "down", vote_photo_path(photo, type: "down"), method: "post" %> 
+            
+          </div>
+        </div>
+      </div>
+  <% end %>
 </div>
+<% if current_user %>
+ <a href="#modal-upload-form" class="waves-effect waves-teal btn-flat modal-trigger">Upload</a>
+<% end %>
+
+
+
+<%= render 'photos/new' %>
+
+
+
+
+
+
+
+  
+
 

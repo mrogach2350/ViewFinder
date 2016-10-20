@@ -11,15 +11,6 @@ class LandmarksController < ApplicationController
 		@landmark = Landmark.find_by_id(params[:id])
 	end
 
-	def vote 
-		value = params[:type] == "up" ? 1 : -1
-		@landmark = Landmark.find_by_id(params[:id])
-		@landmark.photos.each do |photo|
-			photo.add_evaluation(:votes, value, current_user)
-		end
-
-		redirect_to :back, notice: "Thank you for voting!"
-	end
 
 end
 
