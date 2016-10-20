@@ -442,13 +442,6 @@ Photo.create(
 Photo.create(
 	title: 'Vaillancourt Fountain',
 	caption: FFaker::DizzleIpsum.sentence,
-	url: 'http://i.imgur.com/6jAIBei.jpg',
-	user_id: 2,
-	landmark_id: 11
-	)
-Photo.create(
-	title: 'Vaillancourt Fountain',
-	caption: FFaker::DizzleIpsum.sentence,
 	url: 'http://imgur.com/6jAIBei.jpg',
 	user_id: 2,
 	landmark_id: 11
