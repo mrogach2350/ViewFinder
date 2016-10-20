@@ -1,4 +1,8 @@
 <h1><%= @landmark.title %></h1>
+<% if current_user %>
+ <a href="#modal-upload-form" class="waves-effect waves-teal btn modal-trigger">Upload</a>
+<% end %>
+
 <div id="photo_display" class="row">
   <%  @landmark.photos.each do |photo| %>
       <div class="col s6 m4 l3">
@@ -10,26 +14,11 @@
             <span id="card_title" class="card-title grey-text text-darken-4 flow-text"><%= photo.title %></span>
             <p><%= photo.caption %></p>
             <a href="/landmarks/<%=photo.landmark_id%>/photos/<%=photo.id%>">Learn More</a>
-            
+
           </div>
         </div>
       </div>
   <% end %>
 </div>
-<% if current_user %>
- <a href="#modal-upload-form" class="waves-effect waves-teal btn-flat modal-trigger">Upload</a>
-<% end %>
-
-
 
 <%= render 'photos/new' %>
-
-
-
-
-
-
-
-  
-
-
