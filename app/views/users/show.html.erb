@@ -5,7 +5,7 @@
 
       <div class="card" id="show_photo">
         <div class="card-image waves-effect waves-block waves-light">
-          <%= cl_image_tag(photo.url, id: 'card_photo', class: 'activator')  %>
+          <%= cl_image_tag(photo.url, id: 'card_photo', class: 'activator',:width=> "200", :height=> "200")  %>
 
         </div>
         <div class="card-reveal">

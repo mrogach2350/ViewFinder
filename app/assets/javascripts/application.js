@@ -55,7 +55,9 @@ $(document).on('turbolinks:load', function(){
           $("input.cloudinary-fileupload[type=file]").cloudinary_fileupload({replaceFileInput: false});
           $("input.cloudinary-fileupload[type=file]").attr("accept", "image/*");
           $("input.cloudinary-fileupload[type=file]").attr("capture", "camera");
-        }
+          }
   });
+
+
 
 });
