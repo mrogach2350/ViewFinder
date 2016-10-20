@@ -2,7 +2,7 @@ class PhotosController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def index
-    @photos = Photo.all
+    @photos = Photo.find_with_reputation(:votes, :all, order: "votes desc")
   end
 
 
@@ -48,6 +48,14 @@ class PhotosController < ApplicationController
     @user = @photo.user
     @photo.destroy
     redirect_to @user
+  end
+
+  def vote 
+    value = params[:type] == "up" ? 1 : -1
+    # @landmark = Landmark.find_by(id: @photo.landmark_id)
+    @photo = Photo.find_by_id(params[:id])
+    @photo.add_or_update_evaluation(:votes, value, current_user)
+    redirect_to :back, notice: "Thank you for voting!"
   end
 
   private

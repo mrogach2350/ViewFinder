@@ -34,7 +34,12 @@ gem 'ffaker'
 gem 'carrierwave'
 gem 'cloudinary'
 gem 'social-share-button'
+
+gem 'activerecord-reputation-system'
+
+
 gem 'acts_as_commentable_with_threading'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -54,3 +59,4 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
