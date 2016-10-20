@@ -41,6 +41,7 @@ $(document).on('turbolinks:load', function(){
   	$(this).offsetParent().find('.hidden').removeClass('hidden');
   	$(this).offsetParent().find('#user-profile').addClass('hidden');
 
+  });
 
   $(function() {
         if($.fn.cloudinary_fileupload !== undefined) {
@@ -49,5 +50,4 @@ $(document).on('turbolinks:load', function(){
           $("input.cloudinary-fileupload[type=file]").attr("capture", "camera");
           }
     });
-  });
 });
