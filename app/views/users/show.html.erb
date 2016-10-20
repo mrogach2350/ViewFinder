@@ -1,19 +1,55 @@
 <div id="photo_display" class="row">
-  <% @user.photos.each do |photo| %>
-      <div class="col s6 m4 l3">
+  <% if @user.photos.count > 0 %>
+    <% @user.photos.each do |photo|%>
+    <div class="col s6 m4 l3">
 
-        <div class="card" id="show_photo">
-          <div class="card-image waves-effect waves-block waves-light">
-            <%= cl_image_tag(photo.url, id: 'card_photo', class: 'activator')  %>
+      <div class="card" id="show_photo">
+        <div class="card-image waves-effect waves-block waves-light">
+          <%= cl_image_tag(photo.url, id: 'card_photo', class: 'activator')  %>
 
-          </div>
-          <div class="card-reveal">
-            <span id="card_title" class="card-title grey-text text-darken-4 flow-text"><%= photo.title %></span>
-            <p><%= photo.caption %></p>
-            <a href="/landmarks/<%=photo.landmark_id%>/photos/<%=photo.id%>">Learn More</a>
-          </div>
+        </div>
+        <div class="card-reveal">
+          <span id="card_title" class="card-title grey-text text-darken-4 flow-text"><%= photo.title %></span>
+          <p><%= photo.caption %></p>
+          <a href="/landmarks/<%=photo.landmark_id%>/photos/<%=photo.id%>">Learn More</a>
         </div>
       </div>
+    </div>
+    <% end %>
+  <% else %>
+    <div class="col s12">
+      <ul class="collapsible popout" data-collapsible="accordion">
+        <li>
+          <div class="collapsible-header"><i class="material-icons">filter_drama</i>Thank you for joining the ViewFinder Community!</div>
+          <div class="collapsible-body">
+            <p>
+              Welcome to ViewFinder, a vibrant community here to inspire and challenge photographers across San Francisco.  <br>
+              This is your <a href="#modal1" class="modal-trigger"><strong>Profile Page</strong></a> . Currently, We've filled your wall with creations from all over our community. <br>
+              Use them as a tool to get comfortable with this wonderful tool and as inspiration for your first ViewFinder adventure. <br>
+              Once you've uploaded your first photo, we'll get rid of these images and display your handiwork. Please be sure to checkout our <a href="/rules" target="_blank"><strong>Community Guidlines!</strong></a> <br>
+              Now get out there and snap some memories!
+              <a href="/about" target="_blank"><h5 class="signature right">The ViewFinder Team</h5></a>
+            </p>
+
+          </div>
+        </li>
+      </ul>
+    </div>
+    <% Photo.all.each do |photo|%>
+    <div class="col s6 m4 l3">
+      <div class="card" id="show_photo">
+        <div class="card-image waves-effect waves-block waves-light">
+          <%= cl_image_tag(photo.url, id: 'card_photo', class: 'activator')  %>
+
+        </div>
+        <div class="card-reveal">
+          <span id="card_title" class="card-title grey-text text-darken-4 flow-text"><%= photo.title %></span>
+          <p><%= photo.caption %></p>
+          <a href="/landmarks/<%=photo.landmark_id%>/photos/<%=photo.id%>">Learn More</a>
+        </div>
+      </div>
+    </div>
+    <% end %>
   <% end %>
 </div>
 
