@@ -42,22 +42,19 @@ class PhotosController < ApplicationController
   end
 
   def destroy
+    # Cloudinary::Uploader.destroy('n69jwgmxzwrloxa3nzgp', invalidate: true)
+
     @photo = Photo.find_by_id(params[:id])
+    @user = @photo.user
     @photo.destroy
-    redirect_to photos_path
+    redirect_to @user
   end
 
   private
     def photo_params
       photo_params = params.require(:photo).permit(:title, :caption, :url)
-      # foobar = photo_params.merge({landmark_id: Landmark.first.id, user_id: User.first.id})
       photo_params.merge({landmark_id: params[:landmark_id], user_id: current_user.id})
-      # Rails.logger.info "The photo params is: #{foobar.inspect}"
-      # foobar
     end
 end
 
 
-  # def current_user
-  #   @current_user ||= User.find_by_id(params[:user_id]) || User.find(1)
-  # end

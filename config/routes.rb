@@ -3,9 +3,13 @@ Rails.application.routes.draw do
 	root "landmarks#index"
 	post '/upload', to: 'uploads#upload', as: 'uploads'
 
-	resources :landmarks, only: [:index, :show] do
+
+	resources :landmarks, only: [:index, :show, :delete] do
 		resources :photos, except: [:edit]
 	end
+
+
+
 
 	get '/users/:id', to: 'users#show', as: 'user'
 	post '/users', to: 'users#create'
