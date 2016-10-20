@@ -3,9 +3,9 @@
     <% @user.photos.each do |photo|%>
     <div class="col s6 m4 l3">
 
-      <div class="card" id="show_photo">
-        <div class="card-image waves-effect waves-block waves-light">
-          <%= cl_image_tag(photo.url, id: 'card_photo', class: 'activator',:width=> "200", :height=> "200")  %>
+        <div class="card" id="show_photo">
+          <div class="card-image waves-effect waves-block waves-light">
+            <%= cl_image_tag(photo.url, :class=> "activator" , :width=> "200", :height=> "200")  %>
 
         </div>
         <div class="card-reveal">

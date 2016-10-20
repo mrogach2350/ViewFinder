@@ -30,6 +30,9 @@ $(document).on('turbolinks:load', function(){
   $('.collapsible').collapsible();
   $('.materialboxed').materialbox();
   $('.modal-trigger').leanModal();
+  $('#testing').click(function() {
+    console.log('clicked');
+  });
   $('.carousel.carousel-slider').carousel({full_width: true});
 
   setTimeout(function(){
