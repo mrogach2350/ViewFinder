@@ -28,7 +28,7 @@
   </div>
 </div>
 
-<a id="profile_btn" class="waves-effect waves-light btn modal-trigger" href="#modal1">Profile</a>
+<a id="profile_btn" class="waves-effect waves-light btn modal-trigger" href="#modal1"><%= @user.first_name.first %>. <%= @user.last_name.capitalize %></a>
 
 <footer>
   <div id="modal1" class="modal bottom-sheet">
@@ -55,7 +55,7 @@
         <a href="#!" class="modal-action waves-effect waves-green btn-flat " id="edit-user-btn">Edit</a>
         <a href="#modal-delete" class="modal-trigger waves-effect waves-green btn-flat " id="delete-user-btn">Delete</a>
       <% end %>
-    
+
     </div>
   </div>
 
