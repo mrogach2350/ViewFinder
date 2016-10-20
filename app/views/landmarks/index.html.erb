@@ -24,6 +24,7 @@
 
 <script>
 $(document).on('turbolinks:load', function() {
+  $('#map').empty();
   mapboxgl.accessToken = 'pk.eyJ1Ijoid28xcGgiLCJhIjoiY2l1YThnemRoMDAxeTJ5bDcyYW82MTZxMSJ9.6KW1QasMXf9JJ2M81bQ-1g'
   var sfCoords = new mapboxgl.LngLat(	-122.4350, 37.7609);
 
