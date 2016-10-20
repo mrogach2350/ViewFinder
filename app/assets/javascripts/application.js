@@ -22,9 +22,9 @@
 
 $(document).on('turbolinks:load', function(){
   $('.side_btn').sideNav({
-      menuWidth: 300, // Default is 240
+      menuWidth: 300, 
       edge: 'right', // Choose the horizontal origin
-      closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
+      closeOnClick: true
     });
   $('.button-collapse').sideNav();
   $('.materialboxed').materialbox();
@@ -40,16 +40,7 @@ $(document).on('turbolinks:load', function(){
   	$(this).offsetParent().find('.hidden').removeClass('hidden');
   	$(this).offsetParent().find('#user-profile').addClass('hidden');
 
-	// $('#save-user-btn').on('click', function (e) {
-	//   	e.preventDefault();
-	//   	console.log('hi!')
-	//   	$(this).closest('#user-profile').removeClass('hidden');
-	//   	$(this).closest('#edit-user').addClass('hidden');
- //  	});
 
-  });
-
-  console.log('runnin runnnnning');
   $(function() {
         if($.fn.cloudinary_fileupload !== undefined) {
           $("input.cloudinary-fileupload[type=file]").cloudinary_fileupload({replaceFileInput: false});
