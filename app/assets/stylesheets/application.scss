@@ -101,8 +101,10 @@
   margin: 5px;
 }
 #photo-show-btns {
-  position: fixed;
-  bottom: 10vh;
+  width: 100%;
+  margin-top: 15vh;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .active {
@@ -114,6 +116,9 @@
 }
 .comments-header {
   margin-top: 5vh;
+}
+#comment_body {
+  background: white;
 }
 .comments-container {
   margin-top: 5vh;
