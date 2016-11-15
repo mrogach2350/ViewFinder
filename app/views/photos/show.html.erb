@@ -5,13 +5,13 @@
       <%= cl_image_tag(@photo.url, id: 'show_photo', class: 'materialboxed') %>
 
     <div id="photo-show-btns">
-      <div class="col s4">
+      <div class="col s12 l4">
         <a href="/landmarks/<%= @photo.landmark_id %>" class="center waves-effect waves-light btn-flat"><i class="material-icons">language</i> Landmark</a>
       </div>
-      <div class="col s4">
+      <div class="col s6 l4">
         <a href="/users/<%= @photo.user_id %>" class="center waves-effect waves-light btn-flat"><i class="material-icons">perm_identity</i> Artist</a>
       </div>
-      <div class="col s4">
+      <div class="col s6 l4">
         <% if current_user && current_user == @user%>
           <!-- <%= link_to 'Delete', landmark_photo_path(@landmark, @photo), method: 'delete', class: 'center waves-effect waves-light btn-flat', data: {confirm: "Are you sure you want to delete this photo?"}%> -->
           <%= link_to landmark_photo_path(@landmark, @photo), method: 'delete', class: 'center waves-effect waves-light btn-flat', data: {confirm: "Are you sure you want to delete this photo?"} do%>
@@ -19,7 +19,7 @@
           <% end %>
         <% end %>
       </div>
-      <div class="center col s10 offset-s2">
+      <div class="center col s12 l10 offset-l2">
         <%= social_share_button_tag(@photo.url) %>
       </div>
     </div>
