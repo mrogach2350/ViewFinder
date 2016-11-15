@@ -102,7 +102,8 @@
 }
 #photo-show-btns {
   width: 100%;
-  margin: 10vh auto;
+  margin-top: 10vh;
+  margin-bottom: 5vh;
   display: flex;
   flex-wrap: wrap;
 }
@@ -142,4 +143,8 @@
 
 .landmark-show-photos {
   margin-left: 0 !important;
+}
+.material-icons {
+  line-height: 100%;
+  vertical-align: middle;
 }
