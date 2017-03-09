@@ -13,13 +13,12 @@
       </div>
       <div class="col s6 l4">
         <% if current_user && current_user == @user%>
-          <!-- <%= link_to 'Delete', landmark_photo_path(@landmark, @photo), method: 'delete', class: 'center waves-effect waves-light btn-flat', data: {confirm: "Are you sure you want to delete this photo?"}%> -->
           <%= link_to landmark_photo_path(@landmark, @photo), method: 'delete', class: 'center waves-effect waves-light btn-flat', data: {confirm: "Are you sure you want to delete this photo?"} do%>
             <i class="material-icons">delete</i>Delete
           <% end %>
         <% end %>
       </div>
-      <div class="center col s12 l10 offset-l2">
+      <div class="col s12 l10 offset-l2">
         <%= social_share_button_tag(@photo.url) %>
       </div>
     </div>
