@@ -57,12 +57,11 @@
   z-index: 1500;
   margin: 0;
 }
+
 // users/show.html.erb
 .hidden {
   display: none;
 }
-
-
 
 #user_bar{
   margin-bottom: 0;
@@ -85,12 +84,10 @@
   font-size: 1.3vw;
 }
 
-
 #carousel_photo {
   height: auto;
   width: 100%;
 }
-
 
 .social-share-button {
   margin: 15px 0;
@@ -100,12 +97,11 @@
 .ssb-icon {
   margin: 5px;
 }
+
 #photo-show-btns {
   width: 100%;
-  margin-top: 10vh;
-  margin-bottom: 5vh;
-  display: flex;
-  flex-wrap: wrap;
+  margin: 10vh auto 5vh auto;
+  display: block;
 }
 
 .active {
@@ -147,5 +143,8 @@
 .material-icons {
   line-height: 100%;
   vertical-align: middle;
-  
+}
+
+.left-margin {
+  margin-left: 5vw;
 }
