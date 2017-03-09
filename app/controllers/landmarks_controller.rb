@@ -1,5 +1,5 @@
 class LandmarksController < ApplicationController
-	before_filter :authenticate_with_http_digest
+	before_action :authenticate_with_http_digest
 	def index
 		@landmarks = Landmark.all
 	end
@@ -10,6 +10,4 @@ class LandmarksController < ApplicationController
 		@landmark = Landmark.find_by_id(params[:id])
 	end
 
-
 end
-
