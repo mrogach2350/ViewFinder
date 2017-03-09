@@ -5,8 +5,6 @@ class PhotosController < ApplicationController
     @photos = Photo.find_with_reputation(:votes, :all, order: "votes desc")
   end
 
-
-
   def show
     @photo = Photo.find_by_id(params[:id])
     @user = User.find_by(id: @photo.user_id)

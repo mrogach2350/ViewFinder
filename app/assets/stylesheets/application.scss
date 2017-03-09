@@ -57,12 +57,11 @@
   z-index: 1500;
   margin: 0;
 }
+
 // users/show.html.erb
 .hidden {
   display: none;
 }
-
-
 
 #user_bar{
   margin-bottom: 0;
@@ -85,12 +84,10 @@
   font-size: 1.3vw;
 }
 
-
 #carousel_photo {
   height: auto;
   width: 100%;
 }
-
 
 .social-share-button {
   margin: 15px 0;
@@ -100,9 +97,11 @@
 .ssb-icon {
   margin: 5px;
 }
+
 #photo-show-btns {
-  position: fixed;
-  bottom: 10vh;
+  width: 100%;
+  margin: 10vh auto 5vh auto;
+  display: block;
 }
 
 .active {
@@ -114,6 +113,9 @@
 }
 .comments-header {
   margin-top: 5vh;
+}
+#comment_body {
+  background: white;
 }
 .comments-container {
   margin-top: 5vh;
@@ -137,4 +139,12 @@
 
 .landmark-show-photos {
   margin-left: 0 !important;
+}
+.material-icons {
+  line-height: 100%;
+  vertical-align: middle;
+}
+
+.left-margin {
+  margin-left: 5vw;
 }
