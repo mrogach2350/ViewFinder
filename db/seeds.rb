@@ -1,12 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
-
 tables = ['users', 'landmarks', 'photos']
 
 tables.each do |table|
@@ -17,8 +8,8 @@ User.destroy_all
 Landmark.destroy_all
 Photo.destroy_all
 
+# Create Users
 #user_id : 1
-
 User.create(
 	first_name: 'Mikey',
 	last_name: 'Rogachevsky',
@@ -54,43 +45,7 @@ User.create(
 	bio: FFaker::BaconIpsum.sentence
 	)
 
-
-	#user_id : 1
-	User.create(
-		first_name: 'Mikey',
-		last_name: 'Rogachevsky',
-		email: 'mikey@ga.com',
-		password: '1234',
-		bio: FFaker::BaconIpsum.sentence
-		)
-
-	#user_id : 2
-	User.create(
-		first_name: 'Ashley',
-		last_name: 'Vernon',
-		email: 'ashley@ga.com',
-		password: '1234',
-		bio: FFaker::BaconIpsum.sentence
-		)
-
-	#user_id : 3
-	User.create(
-		first_name: 'Wolf',
-		last_name: 'Reese',
-		email: 'wolf@ga.com',
-		password: '1234',
-		bio: FFaker::BaconIpsum.sentence
-		)
-
-	#user_id : 4
-	User.create(
-		first_name: 'Sera',
-		last_name: 'Bak',
-		email: 'sera@ga.com',
-		password: '1234',
-		bio: FFaker::BaconIpsum.sentence
-		)
-
+# Create Landmarks
 #landmark_id : 1
 golden_gate = Landmark.create(
 	title: 'Golden Gate Bridge',
@@ -199,43 +154,15 @@ lombard_street = Landmark.create(
 	url: 'http://imgur.com/6plIZoX.jpg'
 	)
 #landmark_id : 13
-#landmark_id : 14
-golden_gate = Landmark.create(
-	title: 'Golden Gate Bridge',
+golden_park = Landmark.create(
+	title: 'Golden Gate Park',
 	description: FFaker::DizzleIpsum.sentence,
 	lat: -122.4783,
 	long: 37.8199,
-	url: 'http://imgur.com/EmRtDhm.jpg'
+	url: 'https://25va3qc1hw-flywheel.netdna-ssl.com/wp-content/uploads/2011/03/Japanese-Tea-Garden.jpg'
 	)
 
-
-#landmark_id : 15
-
-#landmark_id : 3
-
-#landmark_id : 4
-
-#landmark_id : 5
-
-#landmark_id : 6
-
-
-#landmark_id : 7
-
-
-#landmark_id : 8
-
-#landmark_id : 9
-
-
-#landmark_id : 10
-
-
-#landmark_id : 11
-
-
-#landmark_id : 12
-
+# Add Photos to Landmarks
 Photo.create(
 	title: 'Golden Gate Bridge',
 	caption: FFaker::DizzleIpsum.sentence,
